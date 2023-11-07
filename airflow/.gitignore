@@ -1,0 +1,4 @@
+database/
+dags/
+airflow/logs/
+airflow/database/

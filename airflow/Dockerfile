@@ -1,13 +1,19 @@
-FROM selenium/standalone-chrome
+FROM python:3.8.14-bullseye
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install -y \
+    chromium \
+    chromium-driver \
+    dbus \
+	&& rm -rf /var/lib/apt/lists/* \
+    && dbus-uuidgen > /var/lib/dbus/machine-id
+
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/var/run/dbus/system_bus_socket
+
 ENV PYTHONUNBUFFERED 1
 
-RUN sudo apt update && sudo apt install -y \
-  python3-pip
-
-ENV AIRFLOW_HOME=/home/seluser/app/airflow
+ENV AIRFLOW_HOME=/app/airflow
 
 # DBT
 # $DEL_BEGIN
@@ -17,16 +23,15 @@ ENV DBT_PROFILES_DIR=$DBT_DIR
 ENV DBT_VERSION=1.1.1
 # $DEL_END
 
-
 WORKDIR $AIRFLOW_HOME
 
 COPY scripts scripts
-RUN sudo chmod +x scripts/entrypoint.sh
+RUN chmod +x scripts/entrypoint.sh
 
 COPY pyproject.toml poetry.lock ./
-
-USER root
 
 RUN pip3 install --upgrade --no-cache-dir pip \
     && pip3 install poetry \
     && poetry install --only main
+
+ENTRYPOINT ["sh", "-c", "service dbus start && exec \"$@\"", "--"]
