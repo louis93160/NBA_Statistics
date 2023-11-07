@@ -31,3 +31,19 @@ File Path                                     PID  Runtime      # DAGs    # Erro
 /app/airflow/dags/basic/dbt_basics.py                                1           0  0.12s           2023-11-07T09:56:59
 ================================================================================
 [2023-11-07 09:57:48,030] {manager.py:462} INFO - Exiting gracefully upon receiving signal 15
+[2023-11-07 10:10:36,105] {manager.py:480} INFO - Processing files using up to 2 processes at a time 
+[2023-11-07 10:10:36,106] {manager.py:481} INFO - Process each file at most once every 30 seconds
+[2023-11-07 10:10:36,106] {manager.py:482} INFO - Checking for new files in /app/airflow/dags every 300 seconds
+[2023-11-07 10:10:36,106] {manager.py:690} INFO - Searching for files in /app/airflow/dags
+[2023-11-07 10:10:36,107] {manager.py:693} INFO - There are 0 files in /app/airflow/dags
+[2023-11-07 10:15:36,777] {manager.py:690} INFO - Searching for files in /app/airflow/dags
+[2023-11-07 10:15:36,778] {manager.py:693} INFO - There are 0 files in /app/airflow/dags
+[2023-11-07 10:20:37,361] {manager.py:690} INFO - Searching for files in /app/airflow/dags
+[2023-11-07 10:20:37,362] {manager.py:693} INFO - There are 0 files in /app/airflow/dags
+[2023-11-07 10:25:37,937] {manager.py:690} INFO - Searching for files in /app/airflow/dags
+[2023-11-07 10:25:37,938] {manager.py:693} INFO - There are 0 files in /app/airflow/dags
+[2023-11-07 10:30:38,496] {manager.py:690} INFO - Searching for files in /app/airflow/dags
+[2023-11-07 10:30:38,497] {manager.py:693} INFO - There are 0 files in /app/airflow/dags
+[2023-11-07 10:35:39,067] {manager.py:690} INFO - Searching for files in /app/airflow/dags
+[2023-11-07 10:35:39,068] {manager.py:693} INFO - There are 0 files in /app/airflow/dags
+[2023-11-07 10:37:23,039] {manager.py:462} INFO - Exiting gracefully upon receiving signal 15
