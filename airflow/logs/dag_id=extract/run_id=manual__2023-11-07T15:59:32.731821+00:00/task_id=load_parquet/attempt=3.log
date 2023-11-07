@@ -1,0 +1,26 @@
+[2023-11-07T16:03:02.155+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract.load_parquet manual__2023-11-07T15:59:32.731821+00:00 [queued]>
+[2023-11-07T16:03:02.169+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract.load_parquet manual__2023-11-07T15:59:32.731821+00:00 [queued]>
+[2023-11-07T16:03:02.169+0000] {taskinstance.py:1361} INFO - Starting attempt 3 of 3
+[2023-11-07T16:03:02.189+0000] {taskinstance.py:1382} INFO - Executing <Task(BigQueryInsertJobOperator): load_parquet> on 2023-11-07 15:59:32.731821+00:00
+[2023-11-07T16:03:02.198+0000] {standard_task_runner.py:57} INFO - Started process 428 to run task
+[2023-11-07T16:03:02.212+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'extract', 'load_parquet', 'manual__2023-11-07T15:59:32.731821+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/load.py', '--cfg-path', '/tmp/tmpccowsj9q']
+[2023-11-07T16:03:02.220+0000] {standard_task_runner.py:85} INFO - Job 11: Subtask load_parquet
+[2023-11-07T16:03:02.332+0000] {task_command.py:416} INFO - Running <TaskInstance: extract.load_parquet manual__2023-11-07T15:59:32.731821+00:00 [running]> on host 48017e158481
+[2023-11-07T16:03:02.482+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='extract' AIRFLOW_CTX_TASK_ID='load_parquet' AIRFLOW_CTX_EXECUTION_DATE='2023-11-07T15:59:32.731821+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-07T15:59:32.731821+00:00'
+[2023-11-07T16:03:02.528+0000] {connection.py:232} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2023-11-07T16:03:02.536+0000] {base.py:73} INFO - Using connection ID 'google_cloud_connection' for task execution.
+[2023-11-07T16:03:02.537+0000] {bigquery.py:2802} INFO - Executing: {'load': {'sourceUris': ['gs://nba_stats_57100/game_log/*.csv'], 'destinationTable': {'projectId': 'wagon-bootcamp-57100', 'datasetId': 'nba_stats', 'tableId': 'player_log_test_marius'}, 'sourceFormat': 'CSV', 'writeDisposition': 'WRITE_APPEND'}}'
+[2023-11-07T16:03:02.639+0000] {bigquery.py:1595} INFO - Inserting job airflow_extract_load_parquet_2023_11_07T15_59_32_731821_00_00_e849cb202f80a8e097493a11836af2d5
+[2023-11-07T16:03:02.992+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 2858, in execute
+    job.result(timeout=self.result_timeout, retry=self.result_retry)
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/google/cloud/bigquery/job/base.py", line 922, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 261, in result
+    raise self._exception
+google.api_core.exceptions.BadRequest: 400 No schema specified on job or table.
+[2023-11-07T16:03:03.023+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=extract, task_id=load_parquet, execution_date=20231107T155932, start_date=20231107T160302, end_date=20231107T160303
+[2023-11-07T16:03:03.050+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 11 for task load_parquet (400 No schema specified on job or table.; 428)
+[2023-11-07T16:03:03.086+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-07T16:03:03.117+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
