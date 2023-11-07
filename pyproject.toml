@@ -7,6 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+selenium = "^4.15.2"
+webdriver-manager = "^4.0.1"
+chromedriver-py = "^119.0.6045.105"
+jupyter = "^1.0.0"
 
 
 [build-system]

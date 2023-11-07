@@ -1,0 +1,182 @@
+[2023-11-07 17:05:13,764] {processor.py:153} INFO - Started process (PID=158) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:05:13,767] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:05:13,770] {logging_mixin.py:115} INFO - [2023-11-07 17:05:13,770] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:05:13,821] {logging_mixin.py:115} INFO - [2023-11-07 17:05:13,818] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:05:13,823] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:05:13,952] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.222 seconds
+[2023-11-07 17:05:44,142] {processor.py:153} INFO - Started process (PID=168) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:05:44,147] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:05:44,150] {logging_mixin.py:115} INFO - [2023-11-07 17:05:44,150] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:05:44,185] {logging_mixin.py:115} INFO - [2023-11-07 17:05:44,184] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:05:44,188] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:05:44,278] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.150 seconds
+[2023-11-07 17:06:14,397] {processor.py:153} INFO - Started process (PID=178) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:06:14,398] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:06:14,399] {logging_mixin.py:115} INFO - [2023-11-07 17:06:14,399] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:06:14,408] {logging_mixin.py:115} INFO - [2023-11-07 17:06:14,407] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:06:14,408] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:06:14,450] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.057 seconds
+[2023-11-07 17:06:44,554] {processor.py:153} INFO - Started process (PID=288) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:06:44,557] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:06:44,557] {logging_mixin.py:115} INFO - [2023-11-07 17:06:44,557] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:06:44,567] {logging_mixin.py:115} INFO - [2023-11-07 17:06:44,566] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:06:44,567] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:06:44,601] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.052 seconds
+[2023-11-07 17:07:14,715] {processor.py:153} INFO - Started process (PID=298) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:07:14,717] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:07:14,718] {logging_mixin.py:115} INFO - [2023-11-07 17:07:14,718] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:07:14,727] {logging_mixin.py:115} INFO - [2023-11-07 17:07:14,726] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:07:14,728] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:07:14,760] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.050 seconds
+[2023-11-07 17:07:44,877] {processor.py:153} INFO - Started process (PID=308) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:07:44,879] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:07:44,880] {logging_mixin.py:115} INFO - [2023-11-07 17:07:44,880] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:07:44,890] {logging_mixin.py:115} INFO - [2023-11-07 17:07:44,889] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:07:44,891] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:07:44,924] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.053 seconds
+[2023-11-07 17:08:15,039] {processor.py:153} INFO - Started process (PID=318) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:08:15,041] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:08:15,042] {logging_mixin.py:115} INFO - [2023-11-07 17:08:15,041] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:08:15,051] {logging_mixin.py:115} INFO - [2023-11-07 17:08:15,050] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:08:15,051] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:08:15,091] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.058 seconds
+[2023-11-07 17:08:45,211] {processor.py:153} INFO - Started process (PID=328) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:08:45,213] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:08:45,213] {logging_mixin.py:115} INFO - [2023-11-07 17:08:45,213] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:08:45,223] {logging_mixin.py:115} INFO - [2023-11-07 17:08:45,222] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:08:45,223] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:08:45,256] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.050 seconds
+[2023-11-07 17:09:15,372] {processor.py:153} INFO - Started process (PID=338) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:09:15,373] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:09:15,373] {logging_mixin.py:115} INFO - [2023-11-07 17:09:15,373] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:09:15,383] {logging_mixin.py:115} INFO - [2023-11-07 17:09:15,382] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:09:15,383] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:09:15,422] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.055 seconds
+[2023-11-07 17:09:45,538] {processor.py:153} INFO - Started process (PID=348) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:09:45,539] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:09:45,540] {logging_mixin.py:115} INFO - [2023-11-07 17:09:45,540] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:09:45,551] {logging_mixin.py:115} INFO - [2023-11-07 17:09:45,550] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:09:45,551] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:09:45,586] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.054 seconds
+[2023-11-07 17:10:15,712] {processor.py:153} INFO - Started process (PID=358) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:10:15,714] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:10:15,715] {logging_mixin.py:115} INFO - [2023-11-07 17:10:15,715] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:10:15,724] {logging_mixin.py:115} INFO - [2023-11-07 17:10:15,723] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:10:15,725] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:10:15,763] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.058 seconds
+[2023-11-07 17:10:45,879] {processor.py:153} INFO - Started process (PID=368) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:10:45,880] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:10:45,880] {logging_mixin.py:115} INFO - [2023-11-07 17:10:45,880] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:10:45,889] {logging_mixin.py:115} INFO - [2023-11-07 17:10:45,888] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:10:45,890] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:10:45,927] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.054 seconds
+[2023-11-07 17:11:16,042] {processor.py:153} INFO - Started process (PID=378) to work on /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:11:16,045] {processor.py:641} INFO - Processing file /home/seluser/app/airflow/dags/load.py for tasks to queue
+[2023-11-07 17:11:16,046] {logging_mixin.py:115} INFO - [2023-11-07 17:11:16,046] {dagbag.py:507} INFO - Filling up the DagBag from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:11:16,055] {logging_mixin.py:115} INFO - [2023-11-07 17:11:16,054] {dagbag.py:320} ERROR - Failed to import: /home/seluser/app/airflow/dags/load.py
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/seluser/app/airflow/dags/load.py", line 23, in <module>
+    python_callable=download_game_logs,
+NameError: name 'download_game_logs' is not defined
+[2023-11-07 17:11:16,055] {processor.py:653} WARNING - No viable dags retrieved from /home/seluser/app/airflow/dags/load.py
+[2023-11-07 17:11:16,094] {processor.py:161} INFO - Processing /home/seluser/app/airflow/dags/load.py took 0.057 seconds

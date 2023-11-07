@@ -1,0 +1,93 @@
+[2023-11-07 17:06:17,759] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: scraping.get_game_logs_points manual__2023-11-07T17:06:16.364382+00:00 [queued]>
+[2023-11-07 17:06:17,771] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: scraping.get_game_logs_points manual__2023-11-07T17:06:16.364382+00:00 [queued]>
+[2023-11-07 17:06:17,771] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-07 17:06:17,771] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-11-07 17:06:17,771] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-07 17:06:17,788] {taskinstance.py:1377} INFO - Executing <Task(_PythonDecoratedOperator): get_game_logs_points> on 2023-11-07 17:06:16.364382+00:00
+[2023-11-07 17:06:17,797] {standard_task_runner.py:52} INFO - Started process 189 to run task
+[2023-11-07 17:06:17,805] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'scraping', 'get_game_logs_points', 'manual__2023-11-07T17:06:16.364382+00:00', '--job-id', '134', '--raw', '--subdir', 'DAGS_FOLDER/selenium_session.py', '--cfg-path', '/tmp/tmp7ne_7jh8', '--error-file', '/tmp/tmpje0by4aj']
+[2023-11-07 17:06:17,808] {standard_task_runner.py:80} INFO - Job 134: Subtask get_game_logs_points
+[2023-11-07 17:06:17,924] {task_command.py:370} INFO - Running <TaskInstance: scraping.get_game_logs_points manual__2023-11-07T17:06:16.364382+00:00 [running]> on host a0a68e104200
+[2023-11-07 17:06:18,041] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=scraping
+AIRFLOW_CTX_TASK_ID=get_game_logs_points
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-07T17:06:16.364382+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-07T17:06:16.364382+00:00
+[2023-11-07 17:06:18,734] {selenium_manager.py:135} WARNING - Exception managing chrome: Unable to discover proper chromedriver version in offline mode
+[2023-11-07 17:06:28,910] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/decorators/base.py", line 179, in execute
+    return_value = super().execute(context)
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/seluser/app/airflow/dags/selenium_session.py", line 64, in get_game_logs_points
+    with get_selenium_driver() as driver:
+  File "/usr/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/seluser/app/airflow/dags/selenium_session.py", line 37, in get_selenium_driver
+    username_input.send_keys(username)
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 230, in send_keys
+    self._execute(
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/home/seluser/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-GDoIX1pZ-py3.8/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable
+  (Session info: headless chrome=119.0.6045.105)
+Stacktrace:
+#0 0x55f5507ca5e3 <unknown>
+#1 0x55f55048cf0d <unknown>
+#2 0x55f5504d496f <unknown>
+#3 0x55f5504d2d62 <unknown>
+#4 0x55f550501ef2 <unknown>
+#5 0x55f5504cea02 <unknown>
+#6 0x55f5505020be <unknown>
+#7 0x55f55051db3d <unknown>
+#8 0x55f550501cc3 <unknown>
+#9 0x55f5504cd0e4 <unknown>
+#10 0x55f5504ce0ae <unknown>
+#11 0x55f550790ce1 <unknown>
+#12 0x55f550794b7e <unknown>
+#13 0x55f55077e4b5 <unknown>
+#14 0x55f5507957d6 <unknown>
+#15 0x55f550761dbf <unknown>
+#16 0x55f5507b8748 <unknown>
+#17 0x55f5507b8917 <unknown>
+#18 0x55f5507c9773 <unknown>
+#19 0x7f1a9b1b3609 start_thread
+
+[2023-11-07 17:06:28,933] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=scraping, task_id=get_game_logs_points, execution_date=20231107T170616, start_date=20231107T170617, end_date=20231107T170628
+[2023-11-07 17:06:28,954] {standard_task_runner.py:92} ERROR - Failed to execute job 134 for task get_game_logs_points (Message: element not interactable
+  (Session info: headless chrome=119.0.6045.105)
+Stacktrace:
+#0 0x55f5507ca5e3 <unknown>
+#1 0x55f55048cf0d <unknown>
+#2 0x55f5504d496f <unknown>
+#3 0x55f5504d2d62 <unknown>
+#4 0x55f550501ef2 <unknown>
+#5 0x55f5504cea02 <unknown>
+#6 0x55f5505020be <unknown>
+#7 0x55f55051db3d <unknown>
+#8 0x55f550501cc3 <unknown>
+#9 0x55f5504cd0e4 <unknown>
+#10 0x55f5504ce0ae <unknown>
+#11 0x55f550790ce1 <unknown>
+#12 0x55f550794b7e <unknown>
+#13 0x55f55077e4b5 <unknown>
+#14 0x55f5507957d6 <unknown>
+#15 0x55f550761dbf <unknown>
+#16 0x55f5507b8748 <unknown>
+#17 0x55f5507b8917 <unknown>
+#18 0x55f5507c9773 <unknown>
+#19 0x7f1a9b1b3609 start_thread
+; 189)
+[2023-11-07 17:06:29,000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-11-07 17:06:29,047] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
