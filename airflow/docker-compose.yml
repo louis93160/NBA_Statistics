@@ -32,7 +32,7 @@ services:
             - ./logs:/app/airflow/logs
             # $DEL_BEGIN
             - ~/.gcp_keys:/app/airflow/.gcp_keys
-            - ./dbt_lewagon:/app/airflow/dbt_lewagon
+            - ../dbt_lewagon:/app/airflow/dbt_lewagon
             # $DEL_END
     webserver:
         build: .
