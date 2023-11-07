@@ -1,0 +1,14 @@
+dbt_lewagon:
+  outputs:
+    dev:
+      dataset: dbt_bruno_day2_advanced
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: US
+      method: service-account
+      priority: interactive
+      project: bruno-bootcamp
+      threads: 1
+      type: bigquery
+      keyfile: /app/airflow/.gcp_keys/le-wagon-de-bootcamp.json
+  target: dev
