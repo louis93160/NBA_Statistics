@@ -5134,3 +5134,800 @@ IndentationError: unexpected indent
 [2023-11-07 21:54:22,421] {logging_mixin.py:115} INFO - [2023-11-07 21:54:22,421] {dag.py:2379} INFO - Sync 1 DAGs
 [2023-11-07 21:54:22,448] {logging_mixin.py:115} INFO - [2023-11-07 21:54:22,447] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
 [2023-11-07 21:54:22,466] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.148 seconds
+[2023-11-07 22:02:19,485] {processor.py:153} INFO - Started process (PID=5508) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:19,486] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:02:19,487] {logging_mixin.py:115} INFO - [2023-11-07 22:02:19,487] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:19,551] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:19,584] {logging_mixin.py:115} INFO - [2023-11-07 22:02:19,584] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:02:19,610] {logging_mixin.py:115} INFO - [2023-11-07 22:02:19,610] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:02:19,624] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.145 seconds
+[2023-11-07 22:02:25,668] {processor.py:153} INFO - Started process (PID=5513) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:25,669] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:02:25,669] {logging_mixin.py:115} INFO - [2023-11-07 22:02:25,669] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:25,731] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:25,762] {logging_mixin.py:115} INFO - [2023-11-07 22:02:25,762] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:02:25,788] {logging_mixin.py:115} INFO - [2023-11-07 22:02:25,788] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:02:25,802] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.139 seconds
+[2023-11-07 22:02:55,897] {processor.py:153} INFO - Started process (PID=5522) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:55,898] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:02:55,899] {logging_mixin.py:115} INFO - [2023-11-07 22:02:55,899] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:55,953] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:55,985] {logging_mixin.py:115} INFO - [2023-11-07 22:02:55,985] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:02:56,010] {logging_mixin.py:115} INFO - [2023-11-07 22:02:56,010] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:02:56,022] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.131 seconds
+[2023-11-07 22:02:57,088] {processor.py:153} INFO - Started process (PID=5527) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:57,090] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:02:57,090] {logging_mixin.py:115} INFO - [2023-11-07 22:02:57,090] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:57,095] {logging_mixin.py:115} INFO - [2023-11-07 22:02:57,094] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 31
+    driver = webdriver.Chrome(service=options=chrome_options)
+                                             ^
+SyntaxError: invalid syntax
+[2023-11-07 22:02:57,095] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:02:57,143] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.064 seconds
+[2023-11-07 22:03:03,084] {processor.py:153} INFO - Started process (PID=5532) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:03,085] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:03,086] {logging_mixin.py:115} INFO - [2023-11-07 22:03:03,086] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:03,141] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:03,173] {logging_mixin.py:115} INFO - [2023-11-07 22:03:03,173] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:03,199] {logging_mixin.py:115} INFO - [2023-11-07 22:03:03,199] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:03,215] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.136 seconds
+[2023-11-07 22:03:12,216] {processor.py:153} INFO - Started process (PID=5537) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:12,217] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:12,217] {logging_mixin.py:115} INFO - [2023-11-07 22:03:12,217] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:12,283] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:12,320] {logging_mixin.py:115} INFO - [2023-11-07 22:03:12,320] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:12,358] {logging_mixin.py:115} INFO - [2023-11-07 22:03:12,358] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:12,382] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.172 seconds
+[2023-11-07 22:03:17,275] {processor.py:153} INFO - Started process (PID=5542) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:17,276] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:17,277] {logging_mixin.py:115} INFO - [2023-11-07 22:03:17,277] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:17,280] {logging_mixin.py:115} INFO - [2023-11-07 22:03:17,279] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 57
+    print("Logged in"")
+                      ^
+SyntaxError: EOL while scanning string literal
+[2023-11-07 22:03:17,280] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:17,312] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.044 seconds
+[2023-11-07 22:03:18,287] {processor.py:153} INFO - Started process (PID=5547) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:18,288] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:18,289] {logging_mixin.py:115} INFO - [2023-11-07 22:03:18,289] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:18,348] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:18,381] {logging_mixin.py:115} INFO - [2023-11-07 22:03:18,381] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:18,406] {logging_mixin.py:115} INFO - [2023-11-07 22:03:18,406] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:18,421] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.140 seconds
+[2023-11-07 22:03:21,358] {processor.py:153} INFO - Started process (PID=5552) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:21,359] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:21,360] {logging_mixin.py:115} INFO - [2023-11-07 22:03:21,359] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:21,453] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:21,504] {logging_mixin.py:115} INFO - [2023-11-07 22:03:21,503] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:21,548] {logging_mixin.py:115} INFO - [2023-11-07 22:03:21,548] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:21,576] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.225 seconds
+[2023-11-07 22:03:24,466] {processor.py:153} INFO - Started process (PID=5557) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:24,467] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:24,468] {logging_mixin.py:115} INFO - [2023-11-07 22:03:24,468] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:24,526] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:24,559] {logging_mixin.py:115} INFO - [2023-11-07 22:03:24,558] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:24,585] {logging_mixin.py:115} INFO - [2023-11-07 22:03:24,584] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:24,599] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.139 seconds
+[2023-11-07 22:03:25,621] {processor.py:153} INFO - Started process (PID=5562) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:25,621] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:25,622] {logging_mixin.py:115} INFO - [2023-11-07 22:03:25,622] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:25,694] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:25,726] {logging_mixin.py:115} INFO - [2023-11-07 22:03:25,725] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:25,750] {logging_mixin.py:115} INFO - [2023-11-07 22:03:25,750] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:25,764] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.150 seconds
+[2023-11-07 22:03:27,648] {processor.py:153} INFO - Started process (PID=5567) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:27,649] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:27,650] {logging_mixin.py:115} INFO - [2023-11-07 22:03:27,650] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:27,732] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:27,772] {logging_mixin.py:115} INFO - [2023-11-07 22:03:27,772] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:27,811] {logging_mixin.py:115} INFO - [2023-11-07 22:03:27,811] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:27,830] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.191 seconds
+[2023-11-07 22:03:29,813] {processor.py:153} INFO - Started process (PID=5572) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:29,814] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:29,815] {logging_mixin.py:115} INFO - [2023-11-07 22:03:29,815] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:29,886] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:29,924] {logging_mixin.py:115} INFO - [2023-11-07 22:03:29,924] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:29,961] {logging_mixin.py:115} INFO - [2023-11-07 22:03:29,961] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:29,979] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.175 seconds
+[2023-11-07 22:03:34,875] {processor.py:153} INFO - Started process (PID=5577) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:34,876] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:34,877] {logging_mixin.py:115} INFO - [2023-11-07 22:03:34,877] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:34,938] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:34,982] {logging_mixin.py:115} INFO - [2023-11-07 22:03:34,982] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:35,015] {logging_mixin.py:115} INFO - [2023-11-07 22:03:35,014] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:35,031] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.161 seconds
+[2023-11-07 22:03:39,043] {processor.py:153} INFO - Started process (PID=5582) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:39,044] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:39,044] {logging_mixin.py:115} INFO - [2023-11-07 22:03:39,044] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:39,114] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:39,152] {logging_mixin.py:115} INFO - [2023-11-07 22:03:39,152] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:39,189] {logging_mixin.py:115} INFO - [2023-11-07 22:03:39,189] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:39,214] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.179 seconds
+[2023-11-07 22:03:40,086] {processor.py:153} INFO - Started process (PID=5587) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:40,087] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:40,087] {logging_mixin.py:115} INFO - [2023-11-07 22:03:40,087] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:40,090] {logging_mixin.py:115} INFO - [2023-11-07 22:03:40,089] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 67
+    print(driver.page-)
+                      ^
+SyntaxError: invalid syntax
+[2023-11-07 22:03:40,090] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:40,136] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.056 seconds
+[2023-11-07 22:03:43,160] {processor.py:153} INFO - Started process (PID=5592) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:43,162] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:43,164] {logging_mixin.py:115} INFO - [2023-11-07 22:03:43,163] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:43,237] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:43,283] {logging_mixin.py:115} INFO - [2023-11-07 22:03:43,283] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:43,320] {logging_mixin.py:115} INFO - [2023-11-07 22:03:43,320] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:43,344] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.201 seconds
+[2023-11-07 22:03:44,183] {processor.py:153} INFO - Started process (PID=5597) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:44,184] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:44,185] {logging_mixin.py:115} INFO - [2023-11-07 22:03:44,185] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:44,244] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:44,276] {logging_mixin.py:115} INFO - [2023-11-07 22:03:44,276] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:44,301] {logging_mixin.py:115} INFO - [2023-11-07 22:03:44,301] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:44,314] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.138 seconds
+[2023-11-07 22:03:46,196] {processor.py:153} INFO - Started process (PID=5602) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:46,196] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:46,197] {logging_mixin.py:115} INFO - [2023-11-07 22:03:46,197] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:46,254] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:46,286] {logging_mixin.py:115} INFO - [2023-11-07 22:03:46,285] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:46,311] {logging_mixin.py:115} INFO - [2023-11-07 22:03:46,311] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:46,325] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.135 seconds
+[2023-11-07 22:03:49,359] {processor.py:153} INFO - Started process (PID=5607) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:49,360] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:03:49,360] {logging_mixin.py:115} INFO - [2023-11-07 22:03:49,360] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:49,425] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:03:49,462] {logging_mixin.py:115} INFO - [2023-11-07 22:03:49,462] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:03:49,495] {logging_mixin.py:115} INFO - [2023-11-07 22:03:49,495] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:03:49,517] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.165 seconds
+[2023-11-07 22:04:19,600] {processor.py:153} INFO - Started process (PID=5788) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:04:19,602] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:04:19,603] {logging_mixin.py:115} INFO - [2023-11-07 22:04:19,603] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:04:19,660] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:04:19,692] {logging_mixin.py:115} INFO - [2023-11-07 22:04:19,692] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:04:19,717] {logging_mixin.py:115} INFO - [2023-11-07 22:04:19,717] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:04:19,729] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.136 seconds
+[2023-11-07 22:04:49,809] {processor.py:153} INFO - Started process (PID=5794) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:04:49,811] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:04:49,811] {logging_mixin.py:115} INFO - [2023-11-07 22:04:49,811] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:04:49,884] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:04:49,921] {logging_mixin.py:115} INFO - [2023-11-07 22:04:49,921] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:04:49,947] {logging_mixin.py:115} INFO - [2023-11-07 22:04:49,946] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:04:49,959] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.156 seconds
+[2023-11-07 22:05:20,050] {processor.py:153} INFO - Started process (PID=5905) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:05:20,051] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:05:20,052] {logging_mixin.py:115} INFO - [2023-11-07 22:05:20,051] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:05:20,125] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:05:20,169] {logging_mixin.py:115} INFO - [2023-11-07 22:05:20,169] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:05:20,199] {logging_mixin.py:115} INFO - [2023-11-07 22:05:20,199] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:05:20,212] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.170 seconds
+[2023-11-07 22:05:50,306] {processor.py:153} INFO - Started process (PID=5911) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:05:50,307] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:05:50,308] {logging_mixin.py:115} INFO - [2023-11-07 22:05:50,308] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:05:50,366] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:05:50,404] {logging_mixin.py:115} INFO - [2023-11-07 22:05:50,404] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:05:50,439] {logging_mixin.py:115} INFO - [2023-11-07 22:05:50,439] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:05:50,457] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.158 seconds
+[2023-11-07 22:06:08,353] {processor.py:153} INFO - Started process (PID=5928) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:06:08,353] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:06:08,354] {logging_mixin.py:115} INFO - [2023-11-07 22:06:08,354] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:06:08,411] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:06:08,444] {logging_mixin.py:115} INFO - [2023-11-07 22:06:08,443] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:06:08,470] {logging_mixin.py:115} INFO - [2023-11-07 22:06:08,470] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:06:08,486] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.140 seconds
+[2023-11-07 22:06:38,574] {processor.py:153} INFO - Started process (PID=5933) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:06:38,577] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:06:38,578] {logging_mixin.py:115} INFO - [2023-11-07 22:06:38,578] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:06:38,642] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:06:38,681] {logging_mixin.py:115} INFO - [2023-11-07 22:06:38,681] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:06:38,713] {logging_mixin.py:115} INFO - [2023-11-07 22:06:38,713] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:06:38,727] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.159 seconds
+[2023-11-07 22:07:08,819] {processor.py:153} INFO - Started process (PID=5938) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:07:08,822] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:07:08,823] {logging_mixin.py:115} INFO - [2023-11-07 22:07:08,823] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:07:08,881] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:07:08,918] {logging_mixin.py:115} INFO - [2023-11-07 22:07:08,917] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:07:08,948] {logging_mixin.py:115} INFO - [2023-11-07 22:07:08,948] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:07:08,966] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.153 seconds
+[2023-11-07 22:07:39,059] {processor.py:153} INFO - Started process (PID=5943) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:07:39,060] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:07:39,061] {logging_mixin.py:115} INFO - [2023-11-07 22:07:39,061] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:07:39,125] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:07:39,160] {logging_mixin.py:115} INFO - [2023-11-07 22:07:39,160] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:07:39,185] {logging_mixin.py:115} INFO - [2023-11-07 22:07:39,185] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:07:39,198] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.145 seconds
+[2023-11-07 22:08:09,290] {processor.py:153} INFO - Started process (PID=5948) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:08:09,294] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:08:09,295] {logging_mixin.py:115} INFO - [2023-11-07 22:08:09,294] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:08:09,361] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:08:09,396] {logging_mixin.py:115} INFO - [2023-11-07 22:08:09,396] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:08:09,421] {logging_mixin.py:115} INFO - [2023-11-07 22:08:09,421] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:08:09,438] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.154 seconds
+[2023-11-07 22:08:39,530] {processor.py:153} INFO - Started process (PID=5953) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:08:39,531] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:08:39,533] {logging_mixin.py:115} INFO - [2023-11-07 22:08:39,532] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:08:39,601] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:08:39,642] {logging_mixin.py:115} INFO - [2023-11-07 22:08:39,641] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:08:39,675] {logging_mixin.py:115} INFO - [2023-11-07 22:08:39,675] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:08:39,692] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.168 seconds
+[2023-11-07 22:09:09,781] {processor.py:153} INFO - Started process (PID=5958) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:09:09,787] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:09:09,789] {logging_mixin.py:115} INFO - [2023-11-07 22:09:09,788] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:09:09,852] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:09:09,889] {logging_mixin.py:115} INFO - [2023-11-07 22:09:09,888] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:09:09,918] {logging_mixin.py:115} INFO - [2023-11-07 22:09:09,917] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:09:09,934] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.159 seconds
+[2023-11-07 22:09:40,018] {processor.py:153} INFO - Started process (PID=5963) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:09:40,019] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:09:40,020] {logging_mixin.py:115} INFO - [2023-11-07 22:09:40,020] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:09:40,078] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:09:40,112] {logging_mixin.py:115} INFO - [2023-11-07 22:09:40,112] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:09:40,137] {logging_mixin.py:115} INFO - [2023-11-07 22:09:40,137] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:09:40,149] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.136 seconds
+[2023-11-07 22:10:10,237] {processor.py:153} INFO - Started process (PID=6146) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:10,242] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:10,243] {logging_mixin.py:115} INFO - [2023-11-07 22:10:10,243] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:10,303] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:10,335] {logging_mixin.py:115} INFO - [2023-11-07 22:10:10,334] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:10,360] {logging_mixin.py:115} INFO - [2023-11-07 22:10:10,360] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:10,377] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.146 seconds
+[2023-11-07 22:10:39,305] {processor.py:153} INFO - Started process (PID=6151) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:39,306] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:39,306] {logging_mixin.py:115} INFO - [2023-11-07 22:10:39,306] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:39,362] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:39,394] {logging_mixin.py:115} INFO - [2023-11-07 22:10:39,393] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:39,419] {logging_mixin.py:115} INFO - [2023-11-07 22:10:39,419] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:39,434] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.134 seconds
+[2023-11-07 22:10:41,315] {processor.py:153} INFO - Started process (PID=6156) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:41,316] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:41,316] {logging_mixin.py:115} INFO - [2023-11-07 22:10:41,316] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:41,373] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:41,405] {logging_mixin.py:115} INFO - [2023-11-07 22:10:41,405] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:41,434] {logging_mixin.py:115} INFO - [2023-11-07 22:10:41,434] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:41,450] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.139 seconds
+[2023-11-07 22:10:46,482] {processor.py:153} INFO - Started process (PID=6161) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:46,483] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:46,484] {logging_mixin.py:115} INFO - [2023-11-07 22:10:46,484] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:46,543] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:46,574] {logging_mixin.py:115} INFO - [2023-11-07 22:10:46,574] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:46,599] {logging_mixin.py:115} INFO - [2023-11-07 22:10:46,598] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:46,613] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.135 seconds
+[2023-11-07 22:10:48,496] {processor.py:153} INFO - Started process (PID=6166) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:48,496] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:48,497] {logging_mixin.py:115} INFO - [2023-11-07 22:10:48,497] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:48,553] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:48,584] {logging_mixin.py:115} INFO - [2023-11-07 22:10:48,584] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:48,609] {logging_mixin.py:115} INFO - [2023-11-07 22:10:48,609] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:48,624] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.133 seconds
+[2023-11-07 22:10:54,660] {processor.py:153} INFO - Started process (PID=6220) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:54,661] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:54,662] {logging_mixin.py:115} INFO - [2023-11-07 22:10:54,661] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:54,724] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:54,762] {logging_mixin.py:115} INFO - [2023-11-07 22:10:54,762] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:54,786] {logging_mixin.py:115} INFO - [2023-11-07 22:10:54,786] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:54,800] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.144 seconds
+[2023-11-07 22:10:56,676] {processor.py:153} INFO - Started process (PID=6243) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:56,677] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:10:56,678] {logging_mixin.py:115} INFO - [2023-11-07 22:10:56,678] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:56,737] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:10:56,771] {logging_mixin.py:115} INFO - [2023-11-07 22:10:56,770] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:10:56,796] {logging_mixin.py:115} INFO - [2023-11-07 22:10:56,796] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:10:56,811] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.140 seconds
+[2023-11-07 22:11:00,845] {processor.py:153} INFO - Started process (PID=6284) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:00,845] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:11:00,846] {logging_mixin.py:115} INFO - [2023-11-07 22:11:00,846] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:00,915] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:00,961] {logging_mixin.py:115} INFO - [2023-11-07 22:11:00,961] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:11:00,991] {logging_mixin.py:115} INFO - [2023-11-07 22:11:00,991] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:11:01,008] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.168 seconds
+[2023-11-07 22:11:09,053] {processor.py:153} INFO - Started process (PID=6289) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:09,054] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:11:09,054] {logging_mixin.py:115} INFO - [2023-11-07 22:11:09,054] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:09,126] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:09,168] {logging_mixin.py:115} INFO - [2023-11-07 22:11:09,168] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:11:09,198] {logging_mixin.py:115} INFO - [2023-11-07 22:11:09,198] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:11:09,214] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.167 seconds
+[2023-11-07 22:11:39,297] {processor.py:153} INFO - Started process (PID=6471) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:39,301] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:11:39,302] {logging_mixin.py:115} INFO - [2023-11-07 22:11:39,302] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:39,377] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:11:39,411] {logging_mixin.py:115} INFO - [2023-11-07 22:11:39,411] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:11:39,436] {logging_mixin.py:115} INFO - [2023-11-07 22:11:39,436] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:11:39,449] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.158 seconds
+[2023-11-07 22:12:09,540] {processor.py:153} INFO - Started process (PID=6489) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:09,541] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:12:09,542] {logging_mixin.py:115} INFO - [2023-11-07 22:12:09,542] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:09,600] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:09,633] {logging_mixin.py:115} INFO - [2023-11-07 22:12:09,633] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:12:09,658] {logging_mixin.py:115} INFO - [2023-11-07 22:12:09,658] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:12:09,670] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.135 seconds
+[2023-11-07 22:12:15,564] {processor.py:153} INFO - Started process (PID=6494) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:15,566] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:12:15,567] {logging_mixin.py:115} INFO - [2023-11-07 22:12:15,567] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:15,626] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:15,664] {logging_mixin.py:115} INFO - [2023-11-07 22:12:15,664] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:12:15,702] {logging_mixin.py:115} INFO - [2023-11-07 22:12:15,701] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:12:15,725] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.166 seconds
+[2023-11-07 22:12:45,857] {processor.py:153} INFO - Started process (PID=6607) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:45,858] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:12:45,859] {logging_mixin.py:115} INFO - [2023-11-07 22:12:45,859] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:45,915] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:12:45,951] {logging_mixin.py:115} INFO - [2023-11-07 22:12:45,951] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:12:45,981] {logging_mixin.py:115} INFO - [2023-11-07 22:12:45,981] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:12:45,996] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.145 seconds
+[2023-11-07 22:13:16,112] {processor.py:153} INFO - Started process (PID=6613) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:13:16,115] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:13:16,116] {logging_mixin.py:115} INFO - [2023-11-07 22:13:16,116] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:13:16,188] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:13:16,232] {logging_mixin.py:115} INFO - [2023-11-07 22:13:16,232] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:13:16,265] {logging_mixin.py:115} INFO - [2023-11-07 22:13:16,265] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:13:16,280] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.177 seconds
+[2023-11-07 22:13:46,364] {processor.py:153} INFO - Started process (PID=6630) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:13:46,366] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:13:46,368] {logging_mixin.py:115} INFO - [2023-11-07 22:13:46,367] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:13:46,426] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:13:46,470] {logging_mixin.py:115} INFO - [2023-11-07 22:13:46,470] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:13:46,512] {logging_mixin.py:115} INFO - [2023-11-07 22:13:46,512] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:13:46,529] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.172 seconds
+[2023-11-07 22:14:16,618] {processor.py:153} INFO - Started process (PID=6635) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:14:16,619] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:14:16,620] {logging_mixin.py:115} INFO - [2023-11-07 22:14:16,620] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:14:16,690] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:14:16,726] {logging_mixin.py:115} INFO - [2023-11-07 22:14:16,726] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:14:16,758] {logging_mixin.py:115} INFO - [2023-11-07 22:14:16,758] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:14:16,773] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.161 seconds
+[2023-11-07 22:14:46,863] {processor.py:153} INFO - Started process (PID=6640) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:14:46,865] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:14:46,866] {logging_mixin.py:115} INFO - [2023-11-07 22:14:46,865] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:14:46,940] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:14:46,975] {logging_mixin.py:115} INFO - [2023-11-07 22:14:46,975] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:14:47,001] {logging_mixin.py:115} INFO - [2023-11-07 22:14:47,001] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:14:47,017] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.160 seconds
+[2023-11-07 22:15:17,113] {processor.py:153} INFO - Started process (PID=6645) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:15:17,114] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:15:17,115] {logging_mixin.py:115} INFO - [2023-11-07 22:15:17,114] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:15:17,179] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:15:17,219] {logging_mixin.py:115} INFO - [2023-11-07 22:15:17,219] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:15:17,253] {logging_mixin.py:115} INFO - [2023-11-07 22:15:17,253] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:15:17,271] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.164 seconds
+[2023-11-07 22:15:47,360] {processor.py:153} INFO - Started process (PID=6650) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:15:47,363] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:15:47,364] {logging_mixin.py:115} INFO - [2023-11-07 22:15:47,364] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:15:47,433] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:15:47,471] {logging_mixin.py:115} INFO - [2023-11-07 22:15:47,471] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:15:47,506] {logging_mixin.py:115} INFO - [2023-11-07 22:15:47,506] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:15:47,520] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.165 seconds
+[2023-11-07 22:16:17,610] {processor.py:153} INFO - Started process (PID=6659) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:16:17,612] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:16:17,613] {logging_mixin.py:115} INFO - [2023-11-07 22:16:17,613] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:16:17,670] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:16:17,706] {logging_mixin.py:115} INFO - [2023-11-07 22:16:17,706] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:16:17,736] {logging_mixin.py:115} INFO - [2023-11-07 22:16:17,736] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:16:17,756] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.153 seconds
+[2023-11-07 22:16:47,838] {processor.py:153} INFO - Started process (PID=6664) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:16:47,839] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:16:47,840] {logging_mixin.py:115} INFO - [2023-11-07 22:16:47,840] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:16:47,896] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:16:47,933] {logging_mixin.py:115} INFO - [2023-11-07 22:16:47,933] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:16:47,964] {logging_mixin.py:115} INFO - [2023-11-07 22:16:47,964] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:16:47,982] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.148 seconds
+[2023-11-07 22:17:18,070] {processor.py:153} INFO - Started process (PID=6669) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:17:18,073] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:17:18,074] {logging_mixin.py:115} INFO - [2023-11-07 22:17:18,074] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:17:18,130] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:17:18,164] {logging_mixin.py:115} INFO - [2023-11-07 22:17:18,164] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:17:18,194] {logging_mixin.py:115} INFO - [2023-11-07 22:17:18,194] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:17:18,207] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.142 seconds
+[2023-11-07 22:17:48,291] {processor.py:153} INFO - Started process (PID=6852) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:17:48,292] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:17:48,292] {logging_mixin.py:115} INFO - [2023-11-07 22:17:48,292] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:17:48,349] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:17:48,394] {logging_mixin.py:115} INFO - [2023-11-07 22:17:48,394] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:17:48,430] {logging_mixin.py:115} INFO - [2023-11-07 22:17:48,430] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:17:48,450] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.165 seconds
+[2023-11-07 22:18:18,537] {processor.py:153} INFO - Started process (PID=6857) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:18:18,539] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:18:18,540] {logging_mixin.py:115} INFO - [2023-11-07 22:18:18,540] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:18:18,598] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:18:18,638] {logging_mixin.py:115} INFO - [2023-11-07 22:18:18,638] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:18:18,670] {logging_mixin.py:115} INFO - [2023-11-07 22:18:18,670] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:18:18,684] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.152 seconds
+[2023-11-07 22:18:48,775] {processor.py:153} INFO - Started process (PID=6971) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:18:48,776] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:18:48,777] {logging_mixin.py:115} INFO - [2023-11-07 22:18:48,776] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:18:48,835] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:18:48,874] {logging_mixin.py:115} INFO - [2023-11-07 22:18:48,874] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:18:48,907] {logging_mixin.py:115} INFO - [2023-11-07 22:18:48,907] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:18:48,925] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.155 seconds
+[2023-11-07 22:19:19,016] {processor.py:153} INFO - Started process (PID=6976) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:19:19,018] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:19:19,019] {logging_mixin.py:115} INFO - [2023-11-07 22:19:19,019] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:19:19,075] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:19:19,114] {logging_mixin.py:115} INFO - [2023-11-07 22:19:19,114] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:19:19,145] {logging_mixin.py:115} INFO - [2023-11-07 22:19:19,145] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:19:19,162] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.151 seconds
+[2023-11-07 22:19:49,255] {processor.py:153} INFO - Started process (PID=6993) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:19:49,256] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:19:49,256] {logging_mixin.py:115} INFO - [2023-11-07 22:19:49,256] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:19:49,321] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:19:49,363] {logging_mixin.py:115} INFO - [2023-11-07 22:19:49,362] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:19:49,394] {logging_mixin.py:115} INFO - [2023-11-07 22:19:49,394] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:19:49,410] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.161 seconds
+[2023-11-07 22:20:19,504] {processor.py:153} INFO - Started process (PID=6998) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:19,509] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:20:19,510] {logging_mixin.py:115} INFO - [2023-11-07 22:20:19,510] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:19,589] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:19,637] {logging_mixin.py:115} INFO - [2023-11-07 22:20:19,637] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:20:19,670] {logging_mixin.py:115} INFO - [2023-11-07 22:20:19,670] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:20:19,686] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.192 seconds
+[2023-11-07 22:20:49,776] {processor.py:153} INFO - Started process (PID=7003) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:49,778] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:20:49,779] {logging_mixin.py:115} INFO - [2023-11-07 22:20:49,778] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:49,851] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:49,892] {logging_mixin.py:115} INFO - [2023-11-07 22:20:49,892] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:20:49,934] {logging_mixin.py:115} INFO - [2023-11-07 22:20:49,934] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:20:49,955] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.187 seconds
+[2023-11-07 22:20:52,797] {processor.py:153} INFO - Started process (PID=7008) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:52,798] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:20:52,800] {logging_mixin.py:115} INFO - [2023-11-07 22:20:52,800] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:52,873] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:52,911] {logging_mixin.py:115} INFO - [2023-11-07 22:20:52,911] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:20:52,937] {logging_mixin.py:115} INFO - [2023-11-07 22:20:52,937] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:20:52,951] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.162 seconds
+[2023-11-07 22:20:59,829] {processor.py:153} INFO - Started process (PID=7013) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:59,830] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:20:59,831] {logging_mixin.py:115} INFO - [2023-11-07 22:20:59,831] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:59,901] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:20:59,946] {logging_mixin.py:115} INFO - [2023-11-07 22:20:59,946] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:20:59,983] {logging_mixin.py:115} INFO - [2023-11-07 22:20:59,982] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:00,003] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.184 seconds
+[2023-11-07 22:21:01,000] {processor.py:153} INFO - Started process (PID=7018) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:01,001] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:01,002] {logging_mixin.py:115} INFO - [2023-11-07 22:21:01,002] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:01,060] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:01,092] {logging_mixin.py:115} INFO - [2023-11-07 22:21:01,092] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:01,123] {logging_mixin.py:115} INFO - [2023-11-07 22:21:01,122] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:01,139] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.144 seconds
+[2023-11-07 22:21:14,084] {processor.py:153} INFO - Started process (PID=7023) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:14,086] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:14,087] {logging_mixin.py:115} INFO - [2023-11-07 22:21:14,087] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:14,172] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:14,216] {logging_mixin.py:115} INFO - [2023-11-07 22:21:14,216] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:14,249] {logging_mixin.py:115} INFO - [2023-11-07 22:21:14,249] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:14,266] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.193 seconds
+[2023-11-07 22:21:16,211] {processor.py:153} INFO - Started process (PID=7028) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:16,212] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:16,213] {logging_mixin.py:115} INFO - [2023-11-07 22:21:16,213] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:16,217] {logging_mixin.py:115} INFO - [2023-11-07 22:21:16,216] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 72
+    driver.
+          ^
+SyntaxError: invalid syntax
+[2023-11-07 22:21:16,217] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:16,275] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.071 seconds
+[2023-11-07 22:21:19,309] {processor.py:153} INFO - Started process (PID=7033) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:19,310] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:19,311] {logging_mixin.py:115} INFO - [2023-11-07 22:21:19,311] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:19,393] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:19,445] {logging_mixin.py:115} INFO - [2023-11-07 22:21:19,445] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:19,496] {logging_mixin.py:115} INFO - [2023-11-07 22:21:19,496] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:19,525] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.222 seconds
+[2023-11-07 22:21:22,326] {processor.py:153} INFO - Started process (PID=7038) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:22,327] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:22,328] {logging_mixin.py:115} INFO - [2023-11-07 22:21:22,328] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:22,398] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:22,439] {logging_mixin.py:115} INFO - [2023-11-07 22:21:22,439] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:22,470] {logging_mixin.py:115} INFO - [2023-11-07 22:21:22,470] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:22,489] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.169 seconds
+[2023-11-07 22:21:25,340] {processor.py:153} INFO - Started process (PID=7043) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:25,341] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:25,342] {logging_mixin.py:115} INFO - [2023-11-07 22:21:25,342] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:25,402] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:25,435] {logging_mixin.py:115} INFO - [2023-11-07 22:21:25,435] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:25,470] {logging_mixin.py:115} INFO - [2023-11-07 22:21:25,470] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:25,487] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.152 seconds
+[2023-11-07 22:21:26,357] {processor.py:153} INFO - Started process (PID=7048) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:26,358] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:26,359] {logging_mixin.py:115} INFO - [2023-11-07 22:21:26,358] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:26,451] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:26,504] {logging_mixin.py:115} INFO - [2023-11-07 22:21:26,504] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:26,542] {logging_mixin.py:115} INFO - [2023-11-07 22:21:26,542] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:26,564] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.215 seconds
+[2023-11-07 22:21:30,532] {processor.py:153} INFO - Started process (PID=7053) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:30,535] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:30,536] {logging_mixin.py:115} INFO - [2023-11-07 22:21:30,536] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:30,613] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:30,656] {logging_mixin.py:115} INFO - [2023-11-07 22:21:30,656] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:30,687] {logging_mixin.py:115} INFO - [2023-11-07 22:21:30,687] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:30,708] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.182 seconds
+[2023-11-07 22:21:34,619] {processor.py:153} INFO - Started process (PID=7058) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:34,620] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:34,621] {logging_mixin.py:115} INFO - [2023-11-07 22:21:34,621] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:34,690] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:34,729] {logging_mixin.py:115} INFO - [2023-11-07 22:21:34,729] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:34,759] {logging_mixin.py:115} INFO - [2023-11-07 22:21:34,758] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:34,776] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.162 seconds
+[2023-11-07 22:21:36,770] {processor.py:153} INFO - Started process (PID=7063) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:36,772] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:36,773] {logging_mixin.py:115} INFO - [2023-11-07 22:21:36,772] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:36,849] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:36,885] {logging_mixin.py:115} INFO - [2023-11-07 22:21:36,885] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:36,916] {logging_mixin.py:115} INFO - [2023-11-07 22:21:36,916] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:36,934] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.174 seconds
+[2023-11-07 22:21:37,817] {processor.py:153} INFO - Started process (PID=7068) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:37,818] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:37,819] {logging_mixin.py:115} INFO - [2023-11-07 22:21:37,819] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:37,879] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:37,911] {logging_mixin.py:115} INFO - [2023-11-07 22:21:37,911] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:37,936] {logging_mixin.py:115} INFO - [2023-11-07 22:21:37,936] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:37,951] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.139 seconds
+[2023-11-07 22:21:40,981] {processor.py:153} INFO - Started process (PID=7073) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:40,982] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:40,983] {logging_mixin.py:115} INFO - [2023-11-07 22:21:40,982] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:41,041] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:41,072] {logging_mixin.py:115} INFO - [2023-11-07 22:21:41,072] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:41,098] {logging_mixin.py:115} INFO - [2023-11-07 22:21:41,098] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:41,113] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.137 seconds
+[2023-11-07 22:21:46,001] {processor.py:153} INFO - Started process (PID=7078) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:46,002] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:21:46,002] {logging_mixin.py:115} INFO - [2023-11-07 22:21:46,002] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:46,059] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:21:46,092] {logging_mixin.py:115} INFO - [2023-11-07 22:21:46,092] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:21:46,117] {logging_mixin.py:115} INFO - [2023-11-07 22:21:46,116] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:21:46,131] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.135 seconds
+[2023-11-07 22:22:16,230] {processor.py:153} INFO - Started process (PID=7259) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:22:16,231] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:22:16,232] {logging_mixin.py:115} INFO - [2023-11-07 22:22:16,232] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:22:16,290] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:22:16,328] {logging_mixin.py:115} INFO - [2023-11-07 22:22:16,328] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:22:16,359] {logging_mixin.py:115} INFO - [2023-11-07 22:22:16,359] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:22:16,376] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.151 seconds
+[2023-11-07 22:22:46,466] {processor.py:153} INFO - Started process (PID=7266) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:22:46,466] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:22:46,467] {logging_mixin.py:115} INFO - [2023-11-07 22:22:46,467] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:22:46,539] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:22:46,575] {logging_mixin.py:115} INFO - [2023-11-07 22:22:46,575] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:22:46,604] {logging_mixin.py:115} INFO - [2023-11-07 22:22:46,604] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:22:46,619] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.159 seconds
+[2023-11-07 22:23:16,716] {processor.py:153} INFO - Started process (PID=7374) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:23:16,718] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:23:16,720] {logging_mixin.py:115} INFO - [2023-11-07 22:23:16,719] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:23:16,779] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:23:16,815] {logging_mixin.py:115} INFO - [2023-11-07 22:23:16,815] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:23:16,849] {logging_mixin.py:115} INFO - [2023-11-07 22:23:16,848] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:23:16,864] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.156 seconds
+[2023-11-07 22:23:46,958] {processor.py:153} INFO - Started process (PID=7380) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:23:46,964] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:23:46,965] {logging_mixin.py:115} INFO - [2023-11-07 22:23:46,965] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:23:47,026] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:23:47,059] {logging_mixin.py:115} INFO - [2023-11-07 22:23:47,059] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:23:47,086] {logging_mixin.py:115} INFO - [2023-11-07 22:23:47,086] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:23:47,100] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.147 seconds
+[2023-11-07 22:24:10,019] {processor.py:153} INFO - Started process (PID=7397) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:10,023] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:10,027] {logging_mixin.py:115} INFO - [2023-11-07 22:24:10,024] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:10,031] {logging_mixin.py:115} INFO - [2023-11-07 22:24:10,030] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 72
+    ]
+    ^
+SyntaxError: unmatched ']'
+[2023-11-07 22:24:10,032] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:10,068] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.054 seconds
+[2023-11-07 22:24:12,034] {processor.py:153} INFO - Started process (PID=7402) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:12,034] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:12,035] {logging_mixin.py:115} INFO - [2023-11-07 22:24:12,035] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:12,096] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:12,133] {logging_mixin.py:115} INFO - [2023-11-07 22:24:12,133] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:12,164] {logging_mixin.py:115} INFO - [2023-11-07 22:24:12,164] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:12,182] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.154 seconds
+[2023-11-07 22:24:18,121] {processor.py:153} INFO - Started process (PID=7407) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:18,121] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:18,122] {logging_mixin.py:115} INFO - [2023-11-07 22:24:18,122] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:18,199] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:18,239] {logging_mixin.py:115} INFO - [2023-11-07 22:24:18,239] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:18,273] {logging_mixin.py:115} INFO - [2023-11-07 22:24:18,272] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:18,294] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.178 seconds
+[2023-11-07 22:24:36,269] {processor.py:153} INFO - Started process (PID=7412) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:36,270] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:36,271] {logging_mixin.py:115} INFO - [2023-11-07 22:24:36,271] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:36,274] {logging_mixin.py:115} INFO - [2023-11-07 22:24:36,273] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 73
+    = driver.find_element(By.XPATH, stats_table_xpath)
+    ^
+SyntaxError: invalid syntax
+[2023-11-07 22:24:36,274] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:36,311] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.047 seconds
+[2023-11-07 22:24:41,289] {processor.py:153} INFO - Started process (PID=7417) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:41,291] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:41,294] {logging_mixin.py:115} INFO - [2023-11-07 22:24:41,294] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:41,362] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:41,403] {logging_mixin.py:115} INFO - [2023-11-07 22:24:41,403] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:41,428] {logging_mixin.py:115} INFO - [2023-11-07 22:24:41,428] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:41,443] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.161 seconds
+[2023-11-07 22:24:42,354] {processor.py:153} INFO - Started process (PID=7422) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:42,355] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:42,355] {logging_mixin.py:115} INFO - [2023-11-07 22:24:42,355] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:42,417] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:42,456] {logging_mixin.py:115} INFO - [2023-11-07 22:24:42,455] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:42,482] {logging_mixin.py:115} INFO - [2023-11-07 22:24:42,482] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:42,498] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.149 seconds
+[2023-11-07 22:24:47,489] {processor.py:153} INFO - Started process (PID=7427) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:47,490] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:47,491] {logging_mixin.py:115} INFO - [2023-11-07 22:24:47,491] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:47,561] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:47,602] {logging_mixin.py:115} INFO - [2023-11-07 22:24:47,602] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:47,634] {logging_mixin.py:115} INFO - [2023-11-07 22:24:47,634] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:47,652] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.169 seconds
+[2023-11-07 22:24:49,546] {processor.py:153} INFO - Started process (PID=7432) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:49,547] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:49,548] {logging_mixin.py:115} INFO - [2023-11-07 22:24:49,548] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:49,612] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:49,649] {logging_mixin.py:115} INFO - [2023-11-07 22:24:49,649] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:49,676] {logging_mixin.py:115} INFO - [2023-11-07 22:24:49,676] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:49,690] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.150 seconds
+[2023-11-07 22:24:50,693] {processor.py:153} INFO - Started process (PID=7437) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:50,693] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:50,694] {logging_mixin.py:115} INFO - [2023-11-07 22:24:50,694] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:50,755] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:50,785] {logging_mixin.py:115} INFO - [2023-11-07 22:24:50,785] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:50,810] {logging_mixin.py:115} INFO - [2023-11-07 22:24:50,810] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:50,825] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.137 seconds
+[2023-11-07 22:24:59,753] {processor.py:153} INFO - Started process (PID=7442) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:59,754] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:24:59,755] {logging_mixin.py:115} INFO - [2023-11-07 22:24:59,755] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:59,824] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:24:59,868] {logging_mixin.py:115} INFO - [2023-11-07 22:24:59,868] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:24:59,902] {logging_mixin.py:115} INFO - [2023-11-07 22:24:59,902] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:24:59,920] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.173 seconds
+[2023-11-07 22:25:00,884] {processor.py:153} INFO - Started process (PID=7447) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:00,885] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:00,886] {logging_mixin.py:115} INFO - [2023-11-07 22:25:00,886] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:00,950] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:00,985] {logging_mixin.py:115} INFO - [2023-11-07 22:25:00,985] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:25:01,017] {logging_mixin.py:115} INFO - [2023-11-07 22:25:01,017] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:25:01,034] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.159 seconds
+[2023-11-07 22:25:08,087] {processor.py:153} INFO - Started process (PID=7452) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:08,088] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:08,089] {logging_mixin.py:115} INFO - [2023-11-07 22:25:08,089] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:08,094] {logging_mixin.py:115} INFO - [2023-11-07 22:25:08,092] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 73
+    print("driver.find_element(By.XPATH, stats_table_xpath)
+                                                          ^
+SyntaxError: EOL while scanning string literal
+[2023-11-07 22:25:08,094] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:08,136] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.056 seconds
+[2023-11-07 22:25:10,093] {processor.py:153} INFO - Started process (PID=7457) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:10,094] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:10,095] {logging_mixin.py:115} INFO - [2023-11-07 22:25:10,095] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:10,098] {logging_mixin.py:115} INFO - [2023-11-07 22:25:10,097] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 77
+    driver.quit()
+    ^
+SyntaxError: invalid syntax
+[2023-11-07 22:25:10,098] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:10,130] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.042 seconds
+[2023-11-07 22:25:14,112] {processor.py:153} INFO - Started process (PID=7462) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:14,113] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:14,114] {logging_mixin.py:115} INFO - [2023-11-07 22:25:14,114] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:14,117] {logging_mixin.py:115} INFO - [2023-11-07 22:25:14,116] {dagbag.py:320} ERROR - Failed to import: /app/airflow/dags/test_selinium.py
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/models/dagbag.py", line 317, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 976, in get_code
+  File "<frozen importlib._bootstrap_external>", line 906, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/app/airflow/dags/test_selinium.py", line 77
+    driver.quit()
+    ^
+SyntaxError: invalid syntax
+[2023-11-07 22:25:14,117] {processor.py:653} WARNING - No viable dags retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:14,153] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.048 seconds
+[2023-11-07 22:25:17,178] {processor.py:153} INFO - Started process (PID=7467) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:17,182] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:17,183] {logging_mixin.py:115} INFO - [2023-11-07 22:25:17,183] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:17,249] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:17,294] {logging_mixin.py:115} INFO - [2023-11-07 22:25:17,294] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:25:17,326] {logging_mixin.py:115} INFO - [2023-11-07 22:25:17,326] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:25:17,343] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.170 seconds
+[2023-11-07 22:25:19,204] {processor.py:153} INFO - Started process (PID=7472) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:19,205] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:19,206] {logging_mixin.py:115} INFO - [2023-11-07 22:25:19,206] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:19,278] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:19,313] {logging_mixin.py:115} INFO - [2023-11-07 22:25:19,313] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:25:19,352] {logging_mixin.py:115} INFO - [2023-11-07 22:25:19,352] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:25:19,374] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.179 seconds
+[2023-11-07 22:25:49,453] {processor.py:153} INFO - Started process (PID=7647) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:49,453] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:25:49,454] {logging_mixin.py:115} INFO - [2023-11-07 22:25:49,454] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:49,519] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:25:49,561] {logging_mixin.py:115} INFO - [2023-11-07 22:25:49,561] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:25:49,594] {logging_mixin.py:115} INFO - [2023-11-07 22:25:49,594] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:25:49,613] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.166 seconds
+[2023-11-07 22:26:19,701] {processor.py:153} INFO - Started process (PID=7654) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:26:19,703] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:26:19,704] {logging_mixin.py:115} INFO - [2023-11-07 22:26:19,704] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:26:19,765] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:26:19,806] {logging_mixin.py:115} INFO - [2023-11-07 22:26:19,806] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:26:19,844] {logging_mixin.py:115} INFO - [2023-11-07 22:26:19,844] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:26:19,864] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.168 seconds
+[2023-11-07 22:26:49,948] {processor.py:153} INFO - Started process (PID=7659) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:26:49,949] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:26:49,949] {logging_mixin.py:115} INFO - [2023-11-07 22:26:49,949] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:26:50,016] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:26:50,052] {logging_mixin.py:115} INFO - [2023-11-07 22:26:50,052] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:26:50,080] {logging_mixin.py:115} INFO - [2023-11-07 22:26:50,080] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:26:50,096] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.154 seconds
+[2023-11-07 22:27:20,190] {processor.py:153} INFO - Started process (PID=7668) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:27:20,193] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:27:20,194] {logging_mixin.py:115} INFO - [2023-11-07 22:27:20,194] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:27:20,251] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:27:20,285] {logging_mixin.py:115} INFO - [2023-11-07 22:27:20,285] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:27:20,310] {logging_mixin.py:115} INFO - [2023-11-07 22:27:20,310] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:27:20,322] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.137 seconds
+[2023-11-07 22:27:29,219] {processor.py:153} INFO - Started process (PID=7673) to work on /app/airflow/dags/test_selinium.py
+[2023-11-07 22:27:29,221] {processor.py:641} INFO - Processing file /app/airflow/dags/test_selinium.py for tasks to queue
+[2023-11-07 22:27:29,222] {logging_mixin.py:115} INFO - [2023-11-07 22:27:29,222] {dagbag.py:507} INFO - Filling up the DagBag from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:27:29,287] {processor.py:651} INFO - DAG(s) dict_keys(['selenium_dag_data']) retrieved from /app/airflow/dags/test_selinium.py
+[2023-11-07 22:27:29,321] {logging_mixin.py:115} INFO - [2023-11-07 22:27:29,321] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-11-07 22:27:29,347] {logging_mixin.py:115} INFO - [2023-11-07 22:27:29,347] {dag.py:2927} INFO - Setting next_dagrun for selenium_dag_data to None, run_after=None
+[2023-11-07 22:27:29,365] {processor.py:161} INFO - Processing /app/airflow/dags/test_selinium.py took 0.151 seconds

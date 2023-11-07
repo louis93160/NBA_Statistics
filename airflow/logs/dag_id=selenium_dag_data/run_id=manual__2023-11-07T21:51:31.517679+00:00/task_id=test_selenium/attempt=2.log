@@ -1,0 +1,36 @@
+[2023-11-07 21:57:09,060] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: selenium_dag_data.test_selenium manual__2023-11-07T21:51:31.517679+00:00 [queued]>
+[2023-11-07 21:57:09,073] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: selenium_dag_data.test_selenium manual__2023-11-07T21:51:31.517679+00:00 [queued]>
+[2023-11-07 21:57:09,073] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-07 21:57:09,073] {taskinstance.py:1357} INFO - Starting attempt 2 of 2
+[2023-11-07 21:57:09,073] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-07 21:57:09,092] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): test_selenium> on 2023-11-07 21:51:31.517679+00:00
+[2023-11-07 21:57:09,100] {standard_task_runner.py:52} INFO - Started process 4578 to run task
+[2023-11-07 21:57:09,106] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'selenium_dag_data', 'test_selenium', 'manual__2023-11-07T21:51:31.517679+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/test_selinium.py', '--cfg-path', '/tmp/tmpwslomm52', '--error-file', '/tmp/tmp9bn90m5v']
+[2023-11-07 21:57:09,110] {standard_task_runner.py:80} INFO - Job 42: Subtask test_selenium
+[2023-11-07 21:57:09,217] {task_command.py:370} INFO - Running <TaskInstance: selenium_dag_data.test_selenium manual__2023-11-07T21:51:31.517679+00:00 [running]> on host ad682aabf7c8
+[2023-11-07 21:57:09,328] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=selenium_dag_data
+AIRFLOW_CTX_TASK_ID=test_selenium
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-07T21:51:31.517679+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-07T21:51:31.517679+00:00
+[2023-11-07 21:57:09,331] {logger.py:11} INFO - ====== WebDriver manager ======
+[2023-11-07 21:57:09,812] {logger.py:11} INFO - Get LATEST chromedriver version for chromium
+[2023-11-07 21:57:09,894] {logger.py:11} INFO - Get LATEST chromedriver version for chromium
+[2023-11-07 21:57:09,933] {logger.py:11} INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/119.0.6045.105/chromedriver-linux64/chromedriver] found in cache
+[2023-11-07 21:57:13,785] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/root/.cache/pypoetry/virtualenvs/02-dbt-in-airflow-BsnH11MF-py3.8/lib/python3.8/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/app/airflow/dags/test_selinium.py", line 34, in test_selenium_driver
+    time.sleep(5)
+NameError: name 'sleep' is not defined
+[2023-11-07 21:57:13,815] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=selenium_dag_data, task_id=test_selenium, execution_date=20231107T215131, start_date=20231107T215709, end_date=20231107T215713
+[2023-11-07 21:57:13,840] {standard_task_runner.py:92} ERROR - Failed to execute job 42 for task test_selenium (name 'sleep' is not defined; 4578)
+[2023-11-07 21:57:13,871] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-11-07 21:57:13,935] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
