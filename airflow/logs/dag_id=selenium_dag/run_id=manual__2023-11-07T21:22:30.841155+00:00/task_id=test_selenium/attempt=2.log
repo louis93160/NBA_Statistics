@@ -1,0 +1,27 @@
+[2023-11-07 21:27:33,626] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: selenium_dag.test_selenium manual__2023-11-07T21:22:30.841155+00:00 [queued]>
+[2023-11-07 21:27:33,640] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: selenium_dag.test_selenium manual__2023-11-07T21:22:30.841155+00:00 [queued]>
+[2023-11-07 21:27:33,640] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-07 21:27:33,640] {taskinstance.py:1357} INFO - Starting attempt 2 of 2
+[2023-11-07 21:27:33,640] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-11-07 21:27:33,656] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): test_selenium> on 2023-11-07 21:22:30.841155+00:00
+[2023-11-07 21:27:33,664] {standard_task_runner.py:52} INFO - Started process 614 to run task
+[2023-11-07 21:27:33,669] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'selenium_dag', 'test_selenium', 'manual__2023-11-07T21:22:30.841155+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/test_selinium.py', '--cfg-path', '/tmp/tmp16q7ukl6', '--error-file', '/tmp/tmpl3q99gl4']
+[2023-11-07 21:27:33,673] {standard_task_runner.py:80} INFO - Job 30: Subtask test_selenium
+[2023-11-07 21:27:33,769] {task_command.py:370} INFO - Running <TaskInstance: selenium_dag.test_selenium manual__2023-11-07T21:22:30.841155+00:00 [running]> on host ad682aabf7c8
+[2023-11-07 21:27:33,867] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=selenium_dag
+AIRFLOW_CTX_TASK_ID=test_selenium
+AIRFLOW_CTX_EXECUTION_DATE=2023-11-07T21:22:30.841155+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-11-07T21:22:30.841155+00:00
+[2023-11-07 21:27:33,869] {logger.py:11} INFO - ====== WebDriver manager ======
+[2023-11-07 21:27:34,268] {logger.py:11} INFO - Get LATEST chromedriver version for chromium
+[2023-11-07 21:27:34,328] {logger.py:11} INFO - Get LATEST chromedriver version for chromium
+[2023-11-07 21:27:34,370] {logger.py:11} INFO - Driver [/root/.wdm/drivers/chromedriver/linux64/119.0.6045.105/chromedriver-linux64/chromedriver] found in cache
+[2023-11-07 21:27:52,387] {python.py:173} INFO - Done. Returned value was: None
+[2023-11-07 21:27:52,417] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=selenium_dag, task_id=test_selenium, execution_date=20231107T212230, start_date=20231107T212733, end_date=20231107T212752
+[2023-11-07 21:27:52,479] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-11-07 21:27:52,528] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
