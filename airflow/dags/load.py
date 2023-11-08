@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
 
+from airflow.operators.bash import BashOperator
+
 from airflow import DAG
 
 from airflow.sensors.external_task import ExternalTaskSensor
@@ -19,10 +21,10 @@ from airflow.providers.google.cloud.transfers.local_to_gcs import (
 # AIRFLOW_HOME = os.getenv("AIRFLOW_HOME")
 
 
-# DBT_DIR = os.getenv("DBT_DIR")
+DBT_DIR = os.getenv("DBT_DIR")
 
 with DAG(
-    "extract",
+    "game_log_dag",
     default_args={"depends_on_past": True},
     start_date=datetime(2023, 11, 7),
     end_date=datetime(2023, 12, 31),
@@ -48,7 +50,12 @@ with DAG(
         },
     )
 
-    
+    dbt_run = BashOperator(
+        task_id="dbt_run",
+        bash_command=f"dbt run --project-dir {DBT_DIR}",
+    )
 
 
-    load_parquet
+
+
+    load_parquet >> dbt_run
