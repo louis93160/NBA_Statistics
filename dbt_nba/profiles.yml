@@ -1,0 +1,14 @@
+nba_stats:
+  outputs:
+    dev:
+      dataset: dbt_nba
+      job_execution_timeout_seconds: 600
+      job_retries: 1
+      keyfile: /app/airflow/.gcp_keys/projet.json
+      location: EU
+      method: service-account
+      priority: interactive
+      project: wagon-bootcamp-57100
+      threads: 3
+      type: bigquery
+  target: dev
