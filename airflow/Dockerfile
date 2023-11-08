@@ -1,6 +1,15 @@
-FROM python:3.8.10-slim
+FROM python:3.8.14-bullseye
 
 ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    chromium \
+    chromium-driver \
+    dbus \
+	&& rm -rf /var/lib/apt/lists/* \
+    && dbus-uuidgen > /var/lib/dbus/machine-id
+
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/var/run/dbus/system_bus_socket
 
 ENV PYTHONUNBUFFERED 1
 
@@ -24,3 +33,5 @@ COPY pyproject.toml poetry.lock ./
 RUN pip3 install --upgrade --no-cache-dir pip \
     && pip3 install poetry \
     && poetry install --only main
+
+ENTRYPOINT ["sh", "-c", "service dbus start && exec \"$@\"", "--"]
