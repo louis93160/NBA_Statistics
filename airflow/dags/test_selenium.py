@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import time
 import os
 import pandas as pd
+import re
 
 from airflow.decorators import dag, task
 
@@ -13,6 +14,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
 from google.cloud import storage
 from google.cloud import bigquery
@@ -26,7 +28,7 @@ YESTERDAY_DAY =  int((datetime.now() - timedelta(days=1)).strftime('%d'))
 
 @dag(
     description='Stathead extracting DAG',
-    schedule_interval=None,  # Manually triggered
+    schedule_interval="0 15 * * *",  # Everyday at 15:00
     start_date=datetime(2023, 11, 7),
     catchup=False
 )
@@ -49,7 +51,7 @@ def stathead_extraction():
 
 
         # Your login credentials - replace 'your_username' and 'your_password' with your actual credentials
-        username = 'mariusfall0@gmail.com'
+        username = 'hsravo1@gmail.com'
         password = '7Secondsorless*/!'
 
 
@@ -73,7 +75,7 @@ def stathead_extraction():
         driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
 
         # Wait for the next page to load or for a confirmation of login
-        time.sleep(5)
+        time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
         game_points_content = driver.find_element(By.XPATH, stats_table_xpath).text
@@ -84,7 +86,7 @@ def stathead_extraction():
         driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=trb&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
 
         # Wait for the next page to load or for a confirmation of login
-        time.sleep(5)
+        time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
         game_rebounds_content = driver.find_element(By.XPATH, stats_table_xpath).text
@@ -94,7 +96,7 @@ def stathead_extraction():
         driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=ast&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
 
         # Wait for the next page to load or for a confirmation of login
-        time.sleep(5)
+        time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
         game_assists_content = driver.find_element(By.XPATH, stats_table_xpath).text
@@ -104,7 +106,7 @@ def stathead_extraction():
         driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
 
         # Wait for the next page to load or for a confirmation of login
-        time.sleep(5)
+        time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
         players_content_200 = driver.find_element(By.XPATH, stats_table_xpath).text
@@ -114,10 +116,13 @@ def stathead_extraction():
         driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}&offset=200")
 
         # Wait for the next page to load or for a confirmation of login
-        time.sleep(5)
+        time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        players_content_400 = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            players_content_400 = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            players_content_400 = None
 
         # Don't forget to close the browser
         driver.quit()
@@ -183,10 +188,129 @@ def stathead_extraction():
 
         return games, headers
 
+    def process_players(data):
+        pattern = re.compile(r'^(\d+)\s+([^\d\n]+)\s+(\d{4}-\d{2}-\d{2})')
+
+        def process_line(line):
+            match = pattern.match(line)
+            if match:
+                rk, player, date = match.groups()
+                rest_of_line = line[match.end():].strip()
+                remaining_columns = re.split(r'\s+', rest_of_line)
+                for item in ["(OT)", "@", "*"]:
+                    if item in remaining_columns:
+                        remaining_columns.remove(item)
+                if not remaining_columns[8].startswith('.') and not remaining_columns[8].startswith('1.'):
+                    remaining_columns.insert(8, None)
+                if not remaining_columns[11].startswith('.') and not remaining_columns[11].startswith('1.'):
+                    remaining_columns.insert(11, None)
+                if not remaining_columns[14].startswith('.') and not remaining_columns[14].startswith('1.'):
+                    remaining_columns.insert(14, None)
+                if not remaining_columns[17].startswith('.') and not remaining_columns[17].startswith('1.'):
+                    remaining_columns.insert(17, None)
+                if len(remaining_columns) < 32:
+                    remaining_columns.insert(15, None)
+                return [rk, player, date] + remaining_columns
+            else:
+                return None
+
+        data = data.split('\n')
+        headers = [
+            "Rk",
+            "Player",
+            "Date",
+            "Age",
+            "Team",
+            "Opp",
+            "Result",
+            "GS",
+            "MP",
+            "FG",
+            "FGA",
+            "FG%",
+            "2P",
+            "2PA",
+            "2P%",
+            "3P",
+            "3PA",
+            "3P%",
+            "FT",
+            "FTA",
+            "FT%",
+            "TS%",
+            "ORB",
+            "DRB",
+            "TRB",
+            "AST",
+            "STL",
+            "BLK",
+            "TOV",
+            "PF",
+            "PTS",
+            "GmSc",
+            "BPM",
+            "+/-",
+            "Pos."
+        ]
+
+        processed_data = [process_line(line) for line in data]
+        processed_data = [line for line in processed_data if line is not None]
+
+        processed = pd.DataFrame(processed_data, columns=headers)
+        processed["Result"] = processed["Result"] + " " + processed["GS"]
+        processed.drop(columns=["GS"], inplace=True)
+        processed.columns = [
+            'Rk',
+            'player_fullname',
+            'game_date',
+            'Age',
+            'player_team',
+            'opponent_team',
+            'game_result',
+            'player_minutes',
+            'player_field_goals',
+            'player_field_goals_attempted',
+            'player_field_goals_pctg',
+            'player_2pts',
+            'player_2pts_attempted',
+            'player_2pts_pctg',
+            'player_3pts',
+            'player_3pts_attempted',
+            'player_3pts_pctg',
+            'player_fts',
+            'player_fts_attempted',
+            'player_fts_pctg',
+            'player_true_shooting_pctg',
+            'player_off_rebounds',
+            'player_def_rebounds',
+            'player_total_rebounds',
+            'player_assists',
+            'player_steals',
+            'player_blocks',
+            'player_turnovers',
+            'player_personal_fouls',
+            'player_points',
+            'GmSc',
+            'BPM',
+            'player_plus_minus',
+            'Pos.'
+        ]
+        processed["created_at"] = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+        processed.drop(columns=["Rk", "Age", "GmSc", "BPM", "Pos."], axis=1, inplace=True)
+
+        return processed
+
     @task()
     def extract_games_players_content(result):
         print(result[3])
         print(result[4])
+
+        if not result[4]:
+            processed_players = process_players(result[3])
+        else:
+            processed_players = pd.concat([process_players(result[3]), process_players(result[4])]).reset_index(drop=True)
+
+        processed_players.to_csv(f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv', index=False)
 
     @task()
     def combine_games_content(extracted_game_points_content, extract_games_rebounds_content, extracted_game_assists_content):
@@ -275,8 +399,10 @@ def stathead_extraction():
 
         final_df.to_csv(f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv', index=False)
 
+
+
     @task()
-    def upload_to_gcs():
+    def upload_games_to_gcs():
         object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
         local_file = f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv'
         bucket_name = "nba_stats_57100"
@@ -287,7 +413,7 @@ def stathead_extraction():
         blob.upload_from_filename(local_file)
 
     @task()
-    def gcs_to_bigquery():
+    def gcs_games_to_bigquery():
         object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
         # Construct a BigQuery client object.
         client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
@@ -360,6 +486,74 @@ def stathead_extraction():
         destination_table = client.get_table(table_id)  # Make an API request.
         print("Loaded {} rows.".format(destination_table.num_rows))
 
+    @task()
+    def upload_player_logs_to_gcs():
+        object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+        local_file = f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv'
+        bucket_name = "nba_stats_57100"
+        storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
+        bucket = storage_client.bucket(bucket_name)
+
+        blob = bucket.blob(object_name)
+        blob.upload_from_filename(local_file)
+
+    @task()
+    def gcs_player_logs_to_bigquery():
+        object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+        # Construct a BigQuery client object.
+        client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
+
+        # TODO(developer): Set table_id to the ID of the table to create.
+        table_id = "nba_stats.player_log_temp"
+
+        job_config = bigquery.LoadJobConfig(
+            schema=[
+                    bigquery.SchemaField("player_fullname", "STRING"),
+                    bigquery.SchemaField("game_date", "DATE"),
+                    bigquery.SchemaField("player_team", "STRING"),
+                    bigquery.SchemaField("opponent_team", "STRING"),
+                    bigquery.SchemaField("game_result", "STRING"),
+                    bigquery.SchemaField("player_minutes", "INTEGER"),
+                    bigquery.SchemaField("player_field_goals", "INTEGER"),
+                    bigquery.SchemaField("player_field_goals_attempted", "INTEGER"),
+                    bigquery.SchemaField("player_field_goals_pctg", "FLOAT"),
+                    bigquery.SchemaField("player_2pts", "INTEGER"),
+                    bigquery.SchemaField("player_2pts_attempted", "INTEGER"),
+                    bigquery.SchemaField("player_2pts_pctg", "FLOAT"),
+                    bigquery.SchemaField("player_3pts", "INTEGER"),
+                    bigquery.SchemaField("player_3pts_attempted", "INTEGER"),
+                    bigquery.SchemaField("player_3pts_pctg", "FLOAT"),
+                    bigquery.SchemaField("player_fts", "INTEGER"),
+                    bigquery.SchemaField("player_fts_attempted", "INTEGER"),
+                    bigquery.SchemaField("player_fts_pctg", "FLOAT"),
+                    bigquery.SchemaField("player_true_shooting_pctg", "FLOAT"),
+                    bigquery.SchemaField("player_off_rebounds", "INTEGER"),
+                    bigquery.SchemaField("player_def_rebounds", "INTEGER"),
+                    bigquery.SchemaField("player_total_rebounds", "INTEGER"),
+                    bigquery.SchemaField("player_assists", "INTEGER"),
+                    bigquery.SchemaField("player_steals", "INTEGER"),
+                    bigquery.SchemaField("player_blocks", "INTEGER"),
+                    bigquery.SchemaField("player_turnovers", "INTEGER"),
+                    bigquery.SchemaField("player_personal_fouls", "INTEGER"),
+                    bigquery.SchemaField("player_points", "INTEGER"),
+                    bigquery.SchemaField("player_plus_minus", "FLOAT"),
+                    bigquery.SchemaField("created_at", "TIMESTAMP")
+            ],
+            skip_leading_rows=1,
+            # The source format defaults to CSV, so the line below is optional.
+            source_format=bigquery.SourceFormat.CSV,
+        )
+        uri = f"gs://nba_stats_57100/{object_name}"
+
+        load_job = client.load_table_from_uri(
+            uri, table_id, job_config=job_config
+        )  # Make an API request.
+
+        load_job.result()  # Waits for the job to complete.
+
+        destination_table = client.get_table(table_id)  # Make an API request.
+        print("Loaded {} rows.".format(destination_table.num_rows))
+
 
     result = scraper()
     extracted_game_points_content = extract_points_content(result)
@@ -367,10 +561,12 @@ def stathead_extraction():
     extracted_game_assists_content = extract_games_assists_content(result)
     extract_games_players_content = extract_games_players_content(result)
     combine_games_content = combine_games_content(extracted_game_points_content, extract_games_rebounds_content, extracted_game_assists_content)
-    upload_to_gcs = upload_to_gcs()
-    gcs_to_bigquery = gcs_to_bigquery()
+    upload_games_to_gcs = upload_games_to_gcs()
+    gcs_games_to_bigquery = gcs_games_to_bigquery()
+    upload_player_logs_to_gcs = upload_player_logs_to_gcs()
+    gcs_player_logs_to_bigquery = gcs_player_logs_to_bigquery()
 
-    combine_games_content >> upload_to_gcs  >> gcs_to_bigquery
-
+    # combine_games_content >> upload_games_to_gcs  >> gcs_games_to_bigquery
+    extract_games_players_content >> upload_player_logs_to_gcs >> gcs_player_logs_to_bigquery
 
 extraction = stathead_extraction()
