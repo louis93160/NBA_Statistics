@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import time
+import numpy as np
 import os
 import pandas as pd
 import re
@@ -72,48 +73,65 @@ def stathead_extraction():
 
         #############################################################
         # Navigate to the TEAM GAME POINTS finder page
-        driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        # driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&year_min=2024&year_max=2024&game_month=11&game_day=17")
 
         # Wait for the next page to load or for a confirmation of login
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        game_points_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            game_points_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            game_points_content = None
 
 
         # #############################################################
         # Navigate to the TEAM GAME REBOUNDS finder page
-        driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=trb&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        # driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=trb&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=trb&year_min=2024&year_max=2024&game_month=11&game_day=17")
 
         # Wait for the next page to load or for a confirmation of login
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        game_rebounds_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            game_rebounds_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            game_rebounds_content = None
 
         # #############################################################
         # Navigate to the TEAM GAME ASSISTS finder page
-        driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=ast&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        # driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=ast&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        driver.get(f"https://stathead.com/basketball/team-game-finder.cgi?request=1&order_by=ast&year_min=2024&year_max=2024&game_month=11&game_day=17")
 
         # Wait for the next page to load or for a confirmation of login
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        game_assists_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            game_assists_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            game_assists_content = None
 
         # #############################################################
         # Navigate to the PLAYER GAME LOG FIRST 200 RESULTS finder page
-        driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        # driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}")
+        driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month=11&game_day=17")
 
         # Wait for the next page to load or for a confirmation of login
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        players_content_200 = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            players_content_200 = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            players_content_200 = None
 
         # #############################################################
         # Navigate to the PLAYER GAME LOG NEXT 200 RESULTS finder page
-        driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}&offset=200")
+        # driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month={YESTERDAY_MONTH}&game_day={YESTERDAY_DAY}&offset=200")
+        driver.get(f"https://stathead.com/basketball/player-game-finder.cgi?request=1&order_by=date&year_min=2024&year_max=2024&game_month=11&game_day=17&offset=200")
 
         # Wait for the next page to load or for a confirmation of login
         time.sleep(30)
@@ -295,7 +313,22 @@ def stathead_extraction():
             'player_plus_minus',
             'Pos.'
         ]
+        processed["player_plus_minus"] = pd.to_numeric(processed["player_plus_minus"], errors='coerce')
         processed["created_at"] = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+        processed.fillna(
+            {
+                "player_field_goals": 0,
+                "player_field_goals_pctg": .000,
+                "player_2pts": 0,
+                "player_2pts_pctg": .000,
+                "player_3pts": 0,
+                "player_3pts_pctg": .000,
+                "player_fts": 0,
+                "player_fts_pctg": .000,
+                "player_true_shooting_pctg": .000,
+                "player_plus_minus": 0.0
+            }, inplace=True
+        )
         processed.drop(columns=["Rk", "Age", "GmSc", "BPM", "Pos."], axis=1, inplace=True)
 
         return processed
@@ -310,7 +343,8 @@ def stathead_extraction():
         else:
             processed_players = pd.concat([process_players(result[3]), process_players(result[4])]).reset_index(drop=True)
 
-        processed_players.to_csv(f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv', index=False)
+        # processed_players.to_csv(f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv', index=False)
+        processed_players.to_csv(f'{AIRFLOW_HOME}/data/player_log_2023-11-17.csv', index=False)
 
     @task()
     def combine_games_content(extracted_game_points_content, extract_games_rebounds_content, extracted_game_assists_content):
@@ -397,14 +431,17 @@ def stathead_extraction():
         final_df = pd.merge(points_rbds_df, assists_df, on=['team','game_date', 'opponent', 'team_result'])
         final_df["created_at"] = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
 
-        final_df.to_csv(f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv', index=False)
+        # final_df.to_csv(f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv', index=False)
+        final_df.to_csv(f'{AIRFLOW_HOME}/data/game_log_2023-11-17.csv', index=False)
 
 
 
     @task()
     def upload_games_to_gcs():
-        object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
-        local_file = f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv'
+        # object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
+        object_name = f"game_log/game_log_2023-11-17.csv"
+        # local_file = f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv'
+        local_file = f'{AIRFLOW_HOME}/data/game_log_2023-11-17.csv'
         bucket_name = "nba_stats_57100"
         storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
         bucket = storage_client.bucket(bucket_name)
@@ -414,7 +451,8 @@ def stathead_extraction():
 
     @task()
     def gcs_games_to_bigquery():
-        object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
+        # object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
+        object_name = f"game_log/game_log_2023-11-17.csv"
         # Construct a BigQuery client object.
         client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
 
@@ -488,8 +526,10 @@ def stathead_extraction():
 
     @task()
     def upload_player_logs_to_gcs():
-        object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
-        local_file = f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv'
+        # object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+        object_name = f"player_log/player_log_2023-11-17.csv"
+        # local_file = f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv'
+        local_file = f'{AIRFLOW_HOME}/data/player_log_2023-11-17.csv'
         bucket_name = "nba_stats_57100"
         storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
         bucket = storage_client.bucket(bucket_name)
@@ -499,7 +539,8 @@ def stathead_extraction():
 
     @task()
     def gcs_player_logs_to_bigquery():
-        object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+        # object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+        object_name = f"player_log/player_log_2023-11-17.csv"
         # Construct a BigQuery client object.
         client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
 
@@ -566,7 +607,7 @@ def stathead_extraction():
     upload_player_logs_to_gcs = upload_player_logs_to_gcs()
     gcs_player_logs_to_bigquery = gcs_player_logs_to_bigquery()
 
-    # combine_games_content >> upload_games_to_gcs  >> gcs_games_to_bigquery
+    combine_games_content >> upload_games_to_gcs  >> gcs_games_to_bigquery
     extract_games_players_content >> upload_player_logs_to_gcs >> gcs_player_logs_to_bigquery
 
 extraction = stathead_extraction()
