@@ -4,7 +4,8 @@ nba_stats:
       dataset: dbt_nba
       job_execution_timeout_seconds: 600
       job_retries: 1
-      keyfile: /app/airflow/.gcp_keys/le-wagon-de-bootcamp.json
+      # keyfile: /app/airflow/.gcp_keys/le-wagon-de-bootcamp.json
+      keyfile: le-wagon-de-bootcamp.json
       location: EU
       method: service-account
       priority: interactive
