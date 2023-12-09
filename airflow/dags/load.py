@@ -18,7 +18,7 @@ from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
 from airflow.providers.google.cloud.transfers.local_to_gcs import (
     LocalFilesystemToGCSOperator)
 
-# AIRFLOW_HOME = os.getenv("AIRFLOW_HOME")
+AIRFLOW_HOME = os.getenv("AIRFLOW_HOME")
 
 
 DBT_DIR = os.getenv("DBT_DIR")
@@ -28,7 +28,7 @@ with DAG(
     default_args={"depends_on_past": True},
     start_date=datetime(2023, 11, 7),
     end_date=datetime(2023, 12, 31),
-    schedule_interval="@daily",
+    schedule_interval="0 16 * * *", # Everyday at 16:00
 ) as dag:
 
     # Task 2 : Load Parquet files into an existing BigQuery table

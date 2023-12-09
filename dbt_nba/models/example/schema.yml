@@ -2,19 +2,37 @@
 version: 2
 
 models:
-  - name: my_first_dbt_model
-    description: "A starter dbt model"
+  - name: dim_player_infos
+    description: "Dim model for players"
     columns:
-      - name: id
+      - name: team_code
+        description: "The primary key for this view"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_team_infos
+    description: "Dim model for teams"
+    columns:
+      - name: player_fullname
+        description: "The primary key for this view"
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_player_logs
+    description: "Fact table by game and player"
+    columns:
+      - name: player_fullname
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
 
-  - name: my_second_dbt_model
-    description: "A starter dbt model"
+  - name: fact_team_logs
+    description: "Fact table by game and team"
     columns:
-      - name: id
+      - name: team
         description: "The primary key for this table"
         tests:
           - unique

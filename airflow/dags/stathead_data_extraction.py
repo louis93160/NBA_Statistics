@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import time
+import numpy as np
 import os
 import pandas as pd
 import re
@@ -78,7 +79,10 @@ def stathead_extraction():
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        game_points_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            game_points_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            game_points_content = None
 
 
         # #############################################################
@@ -89,7 +93,10 @@ def stathead_extraction():
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        game_rebounds_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            game_rebounds_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            game_rebounds_content = None
 
         # #############################################################
         # Navigate to the TEAM GAME ASSISTS finder page
@@ -99,7 +106,10 @@ def stathead_extraction():
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        game_assists_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            game_assists_content = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            game_assists_content = None
 
         # #############################################################
         # Navigate to the PLAYER GAME LOG FIRST 200 RESULTS finder page
@@ -109,7 +119,10 @@ def stathead_extraction():
         time.sleep(30)
 
         stats_table_xpath = "//table[contains(@class, 'stats_table')]"
-        players_content_200 = driver.find_element(By.XPATH, stats_table_xpath).text
+        try:
+            players_content_200 = driver.find_element(By.XPATH, stats_table_xpath).text
+        except NoSuchElementException:
+            players_content_200 = None
 
         # #############################################################
         # Navigate to the PLAYER GAME LOG NEXT 200 RESULTS finder page
@@ -130,62 +143,86 @@ def stathead_extraction():
 
     @task()
     def extract_points_content(result):
-        game_points_content = result[0]
-        print("Game points content")
-        print(game_points_content)
-        result = [line for line in game_points_content.split('\n') if line != '']
 
-        headers = result[1].split(' ')
-        games = result[2:]
+        if result[0]:
+            game_points_content = result[0]
+            print("Game points content")
+            print(game_points_content)
+            result = [line for line in game_points_content.split('\n') if line != '']
 
-        games = [game.split() for game in games]
-        for game in games:
-            if "@" in game:
-                game.remove("@")
-            if "(OT)" in game:
-                game.remove("(OT)")
-            game[5] += " " + game.pop(6)
+            headers = result[1].split(' ')
+            games = result[2:]
 
+            games = [game.split() for game in games]
+            for game in games:
+                if "@" in game:
+                    game.remove("@")
+                if "(OT)" in game:
+                    game.remove("(OT)")
+                if "(2OT)" in game:
+                    game.remove("(2OT)")
+                if "(3OT)" in game:
+                    game.remove("(3OT)")
+                game[5] += " " + game.pop(6)
+        else:
+            games = []
+            headers = []
         return games, headers
 
     @task()
     def extract_games_rebounds_content(result):
-        game_rebounds_content = result[1]
-        print("Game rebound content")
-        print(game_rebounds_content)
-        result = [line for line in game_rebounds_content.split('\n') if line != '']
 
-        headers = result[1].split(' ')
-        games = result[2:]
+        if result[1]:
+            game_rebounds_content = result[1]
+            print("Game rebound content")
+            print(game_rebounds_content)
+            result = [line for line in game_rebounds_content.split('\n') if line != '']
 
-        games = [game.split() for game in games]
-        for game in games:
-            if "@" in game:
-                game.remove("@")
-            if "(OT)" in game:
-                game.remove("(OT)")
-            game[5] += " " + game.pop(6)
+            headers = result[1].split(' ')
+            games = result[2:]
 
+            games = [game.split() for game in games]
+            for game in games:
+                if "@" in game:
+                    game.remove("@")
+                if "(OT)" in game:
+                    game.remove("(OT)")
+                if "(2OT)" in game:
+                    game.remove("(2OT)")
+                if "(3OT)" in game:
+                    game.remove("(3OT)")
+                game[5] += " " + game.pop(6)
+        else:
+            games = []
+            headers = []
         return games, headers
 
     @task()
     def extract_games_assists_content(result):
-        game_assists_content = result[2]
-        print("Game assists content")
-        print(game_assists_content)
-        result = [line for line in game_assists_content.split('\n') if line != '']
 
-        headers = result[1].split(' ')
-        games = result[2:]
+        if result[2]:
+            game_assists_content = result[2]
+            print("Game assists content")
+            print(game_assists_content)
+            result = [line for line in game_assists_content.split('\n') if line != '']
 
-        games = [game.split() for game in games]
-        for game in games:
-            if "@" in game:
-                game.remove("@")
-            if "(OT)" in game:
-                game.remove("(OT)")
-            game[5] += " " + game.pop(6)
+            headers = result[1].split(' ')
+            games = result[2:]
 
+            games = [game.split() for game in games]
+            for game in games:
+                if "@" in game:
+                    game.remove("@")
+                if "(OT)" in game:
+                    game.remove("(OT)")
+                if "(2OT)" in game:
+                    game.remove("(2OT)")
+                if "(3OT)" in game:
+                    game.remove("(3OT)")
+                game[5] += " " + game.pop(6)
+        else:
+            games = []
+            headers = []
         return games, headers
 
     def process_players(data):
@@ -197,7 +234,7 @@ def stathead_extraction():
                 rk, player, date = match.groups()
                 rest_of_line = line[match.end():].strip()
                 remaining_columns = re.split(r'\s+', rest_of_line)
-                for item in ["(OT)", "@", "*"]:
+                for item in ["(OT)", "(2OT)", "(3OT)", "@", "*"]:
                     if item in remaining_columns:
                         remaining_columns.remove(item)
                 if not remaining_columns[8].startswith('.') and not remaining_columns[8].startswith('1.'):
@@ -295,265 +332,315 @@ def stathead_extraction():
             'player_plus_minus',
             'Pos.'
         ]
+        processed["player_plus_minus"] = pd.to_numeric(processed["player_plus_minus"], errors='coerce')
         processed["created_at"] = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+        processed.fillna(
+            {
+                "player_field_goals": 0,
+                "player_field_goals_pctg": .000,
+                "player_2pts": 0,
+                "player_2pts_pctg": .000,
+                "player_3pts": 0,
+                "player_3pts_pctg": .000,
+                "player_fts": 0,
+                "player_fts_pctg": .000,
+                "player_true_shooting_pctg": .000,
+                "player_plus_minus": 0.0
+            }, inplace=True
+        )
         processed.drop(columns=["Rk", "Age", "GmSc", "BPM", "Pos."], axis=1, inplace=True)
 
         return processed
 
     @task()
     def extract_games_players_content(result):
-        print(result[3])
-        print(result[4])
 
-        if not result[4]:
-            processed_players = process_players(result[3])
+        if result[3]:
+            print(result[3])
+            print(result[4])
+
+            if not result[4]:
+                processed_players = process_players(result[3])
+            else:
+                processed_players = pd.concat([process_players(result[3]), process_players(result[4])]).reset_index(drop=True)
+
+            processed_players.to_csv(f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv', index=False)
+
         else:
-            processed_players = pd.concat([process_players(result[3]), process_players(result[4])]).reset_index(drop=True)
-
-        processed_players.to_csv(f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv', index=False)
+            print(f"===== NO GAMES REGISTERED ON THIS DATE : {YESTERDAY_FULL} =====")
 
     @task()
     def combine_games_content(extracted_game_points_content, extract_games_rebounds_content, extracted_game_assists_content):
-        points_df = pd.DataFrame(extracted_game_points_content[0], columns=extracted_game_points_content[1])
-        rebounds_df = pd.DataFrame(extract_games_rebounds_content[0], columns=extract_games_rebounds_content[1])
-        assists_df = pd.DataFrame(extracted_game_assists_content[0], columns=extracted_game_assists_content[1])
 
-        points_df.columns = [
-            "Rk",
-            "team",
-            "game_date",
-            "PTS",
-            "opponent",
-            "team_result",
-            "MP",
-            "team_field_goals",
-            "team_field_goals_attempted",
-            "team_field_goals_pctg",
-            "team_2pts",
-            "team_2pts_attempted",
-            "team_2pts_pctg",
-            "team_3pts",
-            "team_3pts_attempted",
-            "team_3pts_pctg",
-            "team_fts",
-            "team_fts_attempted",
-            "team_fts_pctg",
-            "team_points",
-            "opp_field_goals",
-            "opp_field_goals_attempted",
-            "opp_field_goals_pctg",
-            "opp_2pts",
-            "opp_2pts_attempted",
-            "opp_2pts_pctg",
-            "opp_3pts",
-            "opp_3pts_attempted",
-            "opp_3pts_pctg",
-            "opp_fts",
-            "opp_fts_attempted",
-            "opp_fts_pctg",
-            "opp_points"
-        ]
-        points_df.drop(["Rk", "PTS", "MP"], axis=1, inplace=True)
+        if len(extracted_game_points_content[0]) > 1:
+            points_df = pd.DataFrame(extracted_game_points_content[0], columns=extracted_game_points_content[1])
+            rebounds_df = pd.DataFrame(extract_games_rebounds_content[0], columns=extract_games_rebounds_content[1])
+            assists_df = pd.DataFrame(extracted_game_assists_content[0], columns=extracted_game_assists_content[1])
 
-        rebounds_df.columns = [
-            "Rk",
-            "team",
-            "game_date",
-            "TRB",
-            "opponent",
-            "team_result",
-            "MP",
-            "team_off_rebounds",
-            "team_def_rebounds",
-            "team_total_rebounds",
-            "opp_off_rebounds",
-            "opp_def_rebounds",
-            "opp_total_rebounds"
-        ]
-        rebounds_df.drop(["Rk", "TRB", "MP"], axis=1, inplace=True)
+            points_df.columns = [
+                "Rk",
+                "team",
+                "game_date",
+                "PTS",
+                "opponent",
+                "team_result",
+                "MP",
+                "team_field_goals",
+                "team_field_goals_attempted",
+                "team_field_goals_pctg",
+                "team_2pts",
+                "team_2pts_attempted",
+                "team_2pts_pctg",
+                "team_3pts",
+                "team_3pts_attempted",
+                "team_3pts_pctg",
+                "team_fts",
+                "team_fts_attempted",
+                "team_fts_pctg",
+                "team_points",
+                "opp_field_goals",
+                "opp_field_goals_attempted",
+                "opp_field_goals_pctg",
+                "opp_2pts",
+                "opp_2pts_attempted",
+                "opp_2pts_pctg",
+                "opp_3pts",
+                "opp_3pts_attempted",
+                "opp_3pts_pctg",
+                "opp_fts",
+                "opp_fts_attempted",
+                "opp_fts_pctg",
+                "opp_points"
+            ]
+            points_df.drop(["Rk", "PTS", "MP"], axis=1, inplace=True)
 
-        assists_df.columns = [
-            "Rk",
-            "team",
-            "game_date",
-            "AST",
-            "opponent",
-            "team_result",
-            "MP",
-            "team_assists",
-            "team_steals",
-            "team_blocks",
-            "team_turnovers",
-            "team_personal_fouls",
-            "opp_assists",
-            "opp_steals",
-            "opp_blocks",
-            "opp_turnovers",
-            "opp_personal_fouls"
-        ]
-        assists_df.drop(["Rk", "AST", "MP"], axis=1, inplace=True)
+            rebounds_df.columns = [
+                "Rk",
+                "team",
+                "game_date",
+                "TRB",
+                "opponent",
+                "team_result",
+                "MP",
+                "team_off_rebounds",
+                "team_def_rebounds",
+                "team_total_rebounds",
+                "opp_off_rebounds",
+                "opp_def_rebounds",
+                "opp_total_rebounds"
+            ]
+            rebounds_df.drop(["Rk", "TRB", "MP"], axis=1, inplace=True)
 
-        points_rbds_df = pd.merge(points_df, rebounds_df, on=['team','game_date', 'opponent', 'team_result'])
-        final_df = pd.merge(points_rbds_df, assists_df, on=['team','game_date', 'opponent', 'team_result'])
-        final_df["created_at"] = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+            assists_df.columns = [
+                "Rk",
+                "team",
+                "game_date",
+                "AST",
+                "opponent",
+                "team_result",
+                "MP",
+                "team_assists",
+                "team_steals",
+                "team_blocks",
+                "team_turnovers",
+                "team_personal_fouls",
+                "opp_assists",
+                "opp_steals",
+                "opp_blocks",
+                "opp_turnovers",
+                "opp_personal_fouls"
+            ]
+            assists_df.drop(["Rk", "AST", "MP"], axis=1, inplace=True)
 
-        final_df.to_csv(f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv', index=False)
+            points_rbds_df = pd.merge(points_df, rebounds_df, on=['team','game_date', 'opponent', 'team_result'])
+            final_df = pd.merge(points_rbds_df, assists_df, on=['team','game_date', 'opponent', 'team_result'])
+            final_df["created_at"] = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
 
+            print(final_df)
+            final_df.to_csv(f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv', index=False)
+
+        else:
+            print(f"===== NO GAMES REGISTERED ON THIS DATE : {YESTERDAY_FULL} =====")
 
 
     @task()
     def upload_games_to_gcs():
-        object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
-        local_file = f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv'
-        bucket_name = "nba_stats_57100"
-        storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
-        bucket = storage_client.bucket(bucket_name)
 
-        blob = bucket.blob(object_name)
-        blob.upload_from_filename(local_file)
+        local_file = f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv'
+
+        if os.path.isfile(local_file):
+            object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
+            bucket_name = "nba_stats_57100"
+            storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
+            bucket = storage_client.bucket(bucket_name)
+
+            blob = bucket.blob(object_name)
+            blob.upload_from_filename(local_file)
+
+        else:
+            print(f"===== NO GAMES REGISTERED ON THIS DATE : {YESTERDAY_FULL} =====")
 
     @task()
     def gcs_games_to_bigquery():
-        object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
-        # Construct a BigQuery client object.
-        client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
 
-        # TODO(developer): Set table_id to the ID of the table to create.
-        table_id = "nba_stats.game_log_temp"
+        local_file = f'{AIRFLOW_HOME}/data/game_log_{YESTERDAY_FULL}.csv'
 
-        job_config = bigquery.LoadJobConfig(
-            schema=[
-                bigquery.SchemaField("team", "STRING"),
-                bigquery.SchemaField("game_date", "DATE"),
-                bigquery.SchemaField("opponent", "STRING"),
-                bigquery.SchemaField("team_result", "STRING"),
-                bigquery.SchemaField("team_field_goals", "INTEGER"),
-                bigquery.SchemaField("team_field_goals_attempted", "INTEGER"),
-                bigquery.SchemaField("team_field_goals_pctg", "FLOAT"),
-                bigquery.SchemaField("team_2pts", "INTEGER"),
-                bigquery.SchemaField("team_2pts_attempted", "INTEGER"),
-                bigquery.SchemaField("team_2pts_pctg", "FLOAT"),
-                bigquery.SchemaField("team_3pts", "INTEGER"),
-                bigquery.SchemaField("team_3pts_attempted", "INTEGER"),
-                bigquery.SchemaField("team_3pts_pctg", "FLOAT"),
-                bigquery.SchemaField("team_fts", "INTEGER"),
-                bigquery.SchemaField("team_fts_attempted", "INTEGER"),
-                bigquery.SchemaField("team_fts_pctg", "FLOAT"),
-                bigquery.SchemaField("team_points", "INTEGER"),
-                bigquery.SchemaField("opp_field_goals", "INTEGER"),
-                bigquery.SchemaField("opp_field_goals_attempted", "INTEGER"),
-                bigquery.SchemaField("opp_field_goals_pctg", "FLOAT"),
-                bigquery.SchemaField("opp_2pts", "INTEGER"),
-                bigquery.SchemaField("opp_2pts_attempted", "INTEGER"),
-                bigquery.SchemaField("opp_2pts_pctg", "FLOAT"),
-                bigquery.SchemaField("opp_3pts", "INTEGER"),
-                bigquery.SchemaField("opp_3pts_attempted", "INTEGER"),
-                bigquery.SchemaField("opp_3pts_pctg", "FLOAT"),
-                bigquery.SchemaField("opp_fts", "INTEGER"),
-                bigquery.SchemaField("opp_fts_attempted", "INTEGER"),
-                bigquery.SchemaField("opp_fts_pctg", "FLOAT"),
-                bigquery.SchemaField("opp_points", "INTEGER"),
-                bigquery.SchemaField("team_off_rebounds", "INTEGER"),
-                bigquery.SchemaField("team_def_rebounds", "INTEGER"),
-                bigquery.SchemaField("team_total_rebounds", "INTEGER"),
-                bigquery.SchemaField("opp_off_rebounds", "INTEGER"),
-                bigquery.SchemaField("opp_def_rebounds", "INTEGER"),
-                bigquery.SchemaField("opp_total_rebounds", "INTEGER"),
-                bigquery.SchemaField("team_assists", "INTEGER"),
-                bigquery.SchemaField("team_steals", "INTEGER"),
-                bigquery.SchemaField("team_blocks", "INTEGER"),
-                bigquery.SchemaField("team_turnovers", "INTEGER"),
-                bigquery.SchemaField("team_personal_fouls", "INTEGER"),
-                bigquery.SchemaField("opp_assists", "INTEGER"),
-                bigquery.SchemaField("opp_steals", "INTEGER"),
-                bigquery.SchemaField("opp_blocks", "INTEGER"),
-                bigquery.SchemaField("opp_turnovers", "INTEGER"),
-                bigquery.SchemaField("opp_personal_fouls", "INTEGER"),
-                bigquery.SchemaField("created_at", "TIMESTAMP")
-            ],
-            skip_leading_rows=1,
-            # The source format defaults to CSV, so the line below is optional.
-            source_format=bigquery.SourceFormat.CSV,
-        )
-        uri = f"gs://nba_stats_57100/{object_name}"
+        if os.path.isfile(local_file):
+            object_name = f"game_log/game_log_{YESTERDAY_FULL}.csv"
+            # Construct a BigQuery client object.
+            client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
 
-        load_job = client.load_table_from_uri(
-            uri, table_id, job_config=job_config
-        )  # Make an API request.
+            # TODO(developer): Set table_id to the ID of the table to create.
+            table_id = "nba_stats.game_log_temp"
 
-        load_job.result()  # Waits for the job to complete.
+            job_config = bigquery.LoadJobConfig(
+                schema=[
+                    bigquery.SchemaField("team", "STRING"),
+                    bigquery.SchemaField("game_date", "DATE"),
+                    bigquery.SchemaField("opponent", "STRING"),
+                    bigquery.SchemaField("team_result", "STRING"),
+                    bigquery.SchemaField("team_field_goals", "INTEGER"),
+                    bigquery.SchemaField("team_field_goals_attempted", "INTEGER"),
+                    bigquery.SchemaField("team_field_goals_pctg", "FLOAT"),
+                    bigquery.SchemaField("team_2pts", "INTEGER"),
+                    bigquery.SchemaField("team_2pts_attempted", "INTEGER"),
+                    bigquery.SchemaField("team_2pts_pctg", "FLOAT"),
+                    bigquery.SchemaField("team_3pts", "INTEGER"),
+                    bigquery.SchemaField("team_3pts_attempted", "INTEGER"),
+                    bigquery.SchemaField("team_3pts_pctg", "FLOAT"),
+                    bigquery.SchemaField("team_fts", "INTEGER"),
+                    bigquery.SchemaField("team_fts_attempted", "INTEGER"),
+                    bigquery.SchemaField("team_fts_pctg", "FLOAT"),
+                    bigquery.SchemaField("team_points", "INTEGER"),
+                    bigquery.SchemaField("opp_field_goals", "INTEGER"),
+                    bigquery.SchemaField("opp_field_goals_attempted", "INTEGER"),
+                    bigquery.SchemaField("opp_field_goals_pctg", "FLOAT"),
+                    bigquery.SchemaField("opp_2pts", "INTEGER"),
+                    bigquery.SchemaField("opp_2pts_attempted", "INTEGER"),
+                    bigquery.SchemaField("opp_2pts_pctg", "FLOAT"),
+                    bigquery.SchemaField("opp_3pts", "INTEGER"),
+                    bigquery.SchemaField("opp_3pts_attempted", "INTEGER"),
+                    bigquery.SchemaField("opp_3pts_pctg", "FLOAT"),
+                    bigquery.SchemaField("opp_fts", "INTEGER"),
+                    bigquery.SchemaField("opp_fts_attempted", "INTEGER"),
+                    bigquery.SchemaField("opp_fts_pctg", "FLOAT"),
+                    bigquery.SchemaField("opp_points", "INTEGER"),
+                    bigquery.SchemaField("team_off_rebounds", "INTEGER"),
+                    bigquery.SchemaField("team_def_rebounds", "INTEGER"),
+                    bigquery.SchemaField("team_total_rebounds", "INTEGER"),
+                    bigquery.SchemaField("opp_off_rebounds", "INTEGER"),
+                    bigquery.SchemaField("opp_def_rebounds", "INTEGER"),
+                    bigquery.SchemaField("opp_total_rebounds", "INTEGER"),
+                    bigquery.SchemaField("team_assists", "INTEGER"),
+                    bigquery.SchemaField("team_steals", "INTEGER"),
+                    bigquery.SchemaField("team_blocks", "INTEGER"),
+                    bigquery.SchemaField("team_turnovers", "INTEGER"),
+                    bigquery.SchemaField("team_personal_fouls", "INTEGER"),
+                    bigquery.SchemaField("opp_assists", "INTEGER"),
+                    bigquery.SchemaField("opp_steals", "INTEGER"),
+                    bigquery.SchemaField("opp_blocks", "INTEGER"),
+                    bigquery.SchemaField("opp_turnovers", "INTEGER"),
+                    bigquery.SchemaField("opp_personal_fouls", "INTEGER"),
+                    bigquery.SchemaField("created_at", "TIMESTAMP")
+                ],
+                skip_leading_rows=1,
+                # The source format defaults to CSV, so the line below is optional.
+                source_format=bigquery.SourceFormat.CSV,
+            )
+            uri = f"gs://nba_stats_57100/{object_name}"
 
-        destination_table = client.get_table(table_id)  # Make an API request.
-        print("Loaded {} rows.".format(destination_table.num_rows))
+            load_job = client.load_table_from_uri(
+                uri, table_id, job_config=job_config
+            )  # Make an API request.
+
+            load_job.result()  # Waits for the job to complete.
+
+            destination_table = client.get_table(table_id)  # Make an API request.
+            print("Loaded {} rows.".format(destination_table.num_rows))
+
+        else:
+            print(f"===== NO GAMES REGISTERED ON THIS DATE : {YESTERDAY_FULL} =====")
 
     @task()
     def upload_player_logs_to_gcs():
-        object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
-        local_file = f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv'
-        bucket_name = "nba_stats_57100"
-        storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
-        bucket = storage_client.bucket(bucket_name)
 
-        blob = bucket.blob(object_name)
-        blob.upload_from_filename(local_file)
+        local_file = f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv'
+
+        if os.path.isfile(local_file):
+            object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+            bucket_name = "nba_stats_57100"
+            storage_client = storage.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
+            bucket = storage_client.bucket(bucket_name)
+
+            blob = bucket.blob(object_name)
+            blob.upload_from_filename(local_file)
+
+        else:
+            print(f"===== NO GAMES REGISTERED ON THIS DATE : {YESTERDAY_FULL} =====")
 
     @task()
     def gcs_player_logs_to_bigquery():
-        object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
-        # Construct a BigQuery client object.
-        client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
 
-        # TODO(developer): Set table_id to the ID of the table to create.
-        table_id = "nba_stats.player_log_temp"
+        local_file = f'{AIRFLOW_HOME}/data/player_log_{YESTERDAY_FULL}.csv'
 
-        job_config = bigquery.LoadJobConfig(
-            schema=[
-                    bigquery.SchemaField("player_fullname", "STRING"),
-                    bigquery.SchemaField("game_date", "DATE"),
-                    bigquery.SchemaField("player_team", "STRING"),
-                    bigquery.SchemaField("opponent_team", "STRING"),
-                    bigquery.SchemaField("game_result", "STRING"),
-                    bigquery.SchemaField("player_minutes", "INTEGER"),
-                    bigquery.SchemaField("player_field_goals", "INTEGER"),
-                    bigquery.SchemaField("player_field_goals_attempted", "INTEGER"),
-                    bigquery.SchemaField("player_field_goals_pctg", "FLOAT"),
-                    bigquery.SchemaField("player_2pts", "INTEGER"),
-                    bigquery.SchemaField("player_2pts_attempted", "INTEGER"),
-                    bigquery.SchemaField("player_2pts_pctg", "FLOAT"),
-                    bigquery.SchemaField("player_3pts", "INTEGER"),
-                    bigquery.SchemaField("player_3pts_attempted", "INTEGER"),
-                    bigquery.SchemaField("player_3pts_pctg", "FLOAT"),
-                    bigquery.SchemaField("player_fts", "INTEGER"),
-                    bigquery.SchemaField("player_fts_attempted", "INTEGER"),
-                    bigquery.SchemaField("player_fts_pctg", "FLOAT"),
-                    bigquery.SchemaField("player_true_shooting_pctg", "FLOAT"),
-                    bigquery.SchemaField("player_off_rebounds", "INTEGER"),
-                    bigquery.SchemaField("player_def_rebounds", "INTEGER"),
-                    bigquery.SchemaField("player_total_rebounds", "INTEGER"),
-                    bigquery.SchemaField("player_assists", "INTEGER"),
-                    bigquery.SchemaField("player_steals", "INTEGER"),
-                    bigquery.SchemaField("player_blocks", "INTEGER"),
-                    bigquery.SchemaField("player_turnovers", "INTEGER"),
-                    bigquery.SchemaField("player_personal_fouls", "INTEGER"),
-                    bigquery.SchemaField("player_points", "INTEGER"),
-                    bigquery.SchemaField("player_plus_minus", "FLOAT"),
-                    bigquery.SchemaField("created_at", "TIMESTAMP")
-            ],
-            skip_leading_rows=1,
-            # The source format defaults to CSV, so the line below is optional.
-            source_format=bigquery.SourceFormat.CSV,
-        )
-        uri = f"gs://nba_stats_57100/{object_name}"
+        if os.path.isfile(local_file):
+            object_name = f"player_log/player_log_{YESTERDAY_FULL}.csv"
+            # Construct a BigQuery client object.
+            client = bigquery.Client.from_service_account_json('/app/airflow/.gcp_keys/le-wagon-de-bootcamp.json')
 
-        load_job = client.load_table_from_uri(
-            uri, table_id, job_config=job_config
-        )  # Make an API request.
+            # TODO(developer): Set table_id to the ID of the table to create.
+            table_id = "nba_stats.player_log_temp"
 
-        load_job.result()  # Waits for the job to complete.
+            job_config = bigquery.LoadJobConfig(
+                schema=[
+                        bigquery.SchemaField("player_fullname", "STRING"),
+                        bigquery.SchemaField("game_date", "DATE"),
+                        bigquery.SchemaField("player_team", "STRING"),
+                        bigquery.SchemaField("opponent_team", "STRING"),
+                        bigquery.SchemaField("game_result", "STRING"),
+                        bigquery.SchemaField("player_minutes", "INTEGER"),
+                        bigquery.SchemaField("player_field_goals", "INTEGER"),
+                        bigquery.SchemaField("player_field_goals_attempted", "INTEGER"),
+                        bigquery.SchemaField("player_field_goals_pctg", "FLOAT"),
+                        bigquery.SchemaField("player_2pts", "INTEGER"),
+                        bigquery.SchemaField("player_2pts_attempted", "INTEGER"),
+                        bigquery.SchemaField("player_2pts_pctg", "FLOAT"),
+                        bigquery.SchemaField("player_3pts", "INTEGER"),
+                        bigquery.SchemaField("player_3pts_attempted", "INTEGER"),
+                        bigquery.SchemaField("player_3pts_pctg", "FLOAT"),
+                        bigquery.SchemaField("player_fts", "INTEGER"),
+                        bigquery.SchemaField("player_fts_attempted", "INTEGER"),
+                        bigquery.SchemaField("player_fts_pctg", "FLOAT"),
+                        bigquery.SchemaField("player_true_shooting_pctg", "FLOAT"),
+                        bigquery.SchemaField("player_off_rebounds", "INTEGER"),
+                        bigquery.SchemaField("player_def_rebounds", "INTEGER"),
+                        bigquery.SchemaField("player_total_rebounds", "INTEGER"),
+                        bigquery.SchemaField("player_assists", "INTEGER"),
+                        bigquery.SchemaField("player_steals", "INTEGER"),
+                        bigquery.SchemaField("player_blocks", "INTEGER"),
+                        bigquery.SchemaField("player_turnovers", "INTEGER"),
+                        bigquery.SchemaField("player_personal_fouls", "INTEGER"),
+                        bigquery.SchemaField("player_points", "INTEGER"),
+                        bigquery.SchemaField("player_plus_minus", "FLOAT"),
+                        bigquery.SchemaField("created_at", "TIMESTAMP")
+                ],
+                skip_leading_rows=1,
+                # The source format defaults to CSV, so the line below is optional.
+                source_format=bigquery.SourceFormat.CSV,
+            )
+            uri = f"gs://nba_stats_57100/{object_name}"
 
-        destination_table = client.get_table(table_id)  # Make an API request.
-        print("Loaded {} rows.".format(destination_table.num_rows))
+            load_job = client.load_table_from_uri(
+                uri, table_id, job_config=job_config
+            )  # Make an API request.
 
+            load_job.result()  # Waits for the job to complete.
+
+            destination_table = client.get_table(table_id)  # Make an API request.
+            print("Loaded {} rows.".format(destination_table.num_rows))
+
+        else:
+            print(f"===== NO GAMES REGISTERED ON THIS DATE : {YESTERDAY_FULL} =====")
 
     result = scraper()
     extracted_game_points_content = extract_points_content(result)
@@ -566,7 +653,7 @@ def stathead_extraction():
     upload_player_logs_to_gcs = upload_player_logs_to_gcs()
     gcs_player_logs_to_bigquery = gcs_player_logs_to_bigquery()
 
-    # combine_games_content >> upload_games_to_gcs  >> gcs_games_to_bigquery
+    combine_games_content >> upload_games_to_gcs  >> gcs_games_to_bigquery
     extract_games_players_content >> upload_player_logs_to_gcs >> gcs_player_logs_to_bigquery
 
 extraction = stathead_extraction()
