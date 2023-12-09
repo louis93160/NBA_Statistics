@@ -18,7 +18,7 @@ from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
 from airflow.providers.google.cloud.transfers.local_to_gcs import (
     LocalFilesystemToGCSOperator)
 
-# AIRFLOW_HOME = os.getenv("AIRFLOW_HOME")
+AIRFLOW_HOME = os.getenv("AIRFLOW_HOME")
 
 
 DBT_DIR = os.getenv("DBT_DIR")
