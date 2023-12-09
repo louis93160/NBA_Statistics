@@ -4,3 +4,4 @@ airflow/dags/__pycache__/*
 airflow/dags/*.csv
 airflow/dags/*.txt
 airflow/data/*.csv
+airflow/le-wagon-de-bootcamp.json
