@@ -15,6 +15,8 @@ ENV PYTHONUNBUFFERED 1
 
 ENV AIRFLOW_HOME=/app/airflow
 
+COPY le-wagon-de-bootcamp.json $AIRFLOW_HOME/.gcp_keys/le-wagon-de-bootcamp.json
+
 # DBT
 # $DEL_BEGIN
 ENV DBT_DIR=$AIRFLOW_HOME/dbt_nba
